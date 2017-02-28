@@ -38,8 +38,6 @@ let g:ctrlp_cmd = 'CtrlP'
 """"""""""""""""""""""""""""""""""""""""""""""""
 " General Configuration
 """"""""""""""""""""""""""""""""""""""""""""""""
-set clipboard=unamedplus
-
 " Automatically update a file if it is changed externally
 set autoread
 
