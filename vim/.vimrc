@@ -14,9 +14,6 @@ Plugin 'gmarik/Vundle.vim'
 " NERD tree - tree explorer
 Plugin 'scrooloose/nerdtree'
 
-" Base16 colorschemes
-Plugin 'chriskempson/base16-vim'
-
 " Ctrl-p
 Plugin 'kien/ctrlp.vim'
 
@@ -88,10 +85,10 @@ set encoding=utf8
 set ffs=unix,dos,mac
 
 let base16colorspace=256
-colorscheme base16-default-dark
+" colorscheme base16-default-dark
 set background=dark
 
-set cursorline	" highlight current active line
+" set cursorline	" highlight current active line
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " File Types

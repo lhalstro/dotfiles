@@ -51,10 +51,6 @@ source $ZSH/oh-my-zsh.sh
 # use 256 color terminal
 export TERM=xterm-256color
 
-# Base16 Shell
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
 #------------------------------------------------------
 # Aliases
 #------------------------------------------------------
@@ -65,7 +61,7 @@ alias serve='python -m SimpleHTTPServer'
 #------------------------------------------------------
 export DISPLAY=localhost:0.0
 export DEFAULT_USER=karasinski
-eval `dircolors ~/.solarized/dircolors.ansi-dark`
+eval `dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
 
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
