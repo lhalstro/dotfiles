@@ -1,6 +1,7 @@
 # Beets configuration --------------------------------------------------------
 
-directory: /mnt/c/Music
+#Directory that music library will be stored in (where 'import' moves music to)
+directory: /mnt/e/Media/Music
 
 import:
     # write metadata to music files
@@ -45,7 +46,7 @@ ignore: [".*", "*~", "System Volume Information"]
 # Paths and filenames for music files
 # relative to music directory
 paths:
-    default: $albumartist - $album (%ifdef{original_year,$original_year,$year})/$track - $title
+    default: $albumartist - $album (%ifdef{original_year,$original_year,$year})/$track - $albumartist - $title
 
 # replace special characters in generated filenames
 replace:
@@ -122,7 +123,7 @@ match:
 # Plugins --------------------------------------------------------------------
 
 plugins: [
-    discogs,
+    # discogs,
     fetchart,
     embedart,
     lastgenre,
