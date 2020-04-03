@@ -3,7 +3,7 @@
 #------------------------------------------------------
 
 # Path to your oh-my-zsh configuration.
-export ZSH=/home/karasinski/.oh-my-zsh
+export ZSH=/home/lhalstro/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -60,7 +60,7 @@ alias serve='python -m SimpleHTTPServer'
 # Etc
 #------------------------------------------------------
 export DISPLAY=localhost:0.0
-export DEFAULT_USER=karasinski
+export DEFAULT_USER=lhalstro
 eval `dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
 
 # colored completion - use my LS_COLORS
