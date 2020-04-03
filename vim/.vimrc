@@ -1,6 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Setup Vundler for plugin management
-""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 set nocompatible
 filetype off
 
@@ -20,10 +20,11 @@ Plugin 'kien/ctrlp.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Custom Keybindings
-"""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","       " leader is comma
+"***********************************************
+" leader is leading key used for custom key bindings
+let mapleader=","       " leader is comma (default is \)
 
 " turn off search highlight with ,-<space>
 nnoremap <leader><space> :nohlsearch<CR>
@@ -32,27 +33,36 @@ nnoremap <leader><space> :nohlsearch<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " General Configuration
-""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
+" go to last line cursor was on
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+
 " Automatically update a file if it is changed externally
 set autoread
 
 " Height of the command bar
 set cmdheight=2
 
-set hlsearch	    " highlight search matches
+" Search settings
 set incsearch	    " search while characters are entered
-
-" search is case-insensitive by default
-set ignorecase
+set ignorecase      " search is case-insensitive by default
+set hlsearch	    " highlight search matches
+" change highlight colors.
+" bg is the highlight,
+" fg (foreground) is the text color (e.g. ctermfg=White) (default: unchanged)
+hi Search guibg=DarkGrey ctermbg=DarkGrey
 
 " Show linenumbers
 set number
 
+set ruler	" always show current position
+
 set showcmd	" show last command in the bottom right
 
-set ruler	" always show current position
 
 " Line wrap (number of cols)
 set wrap	    " wrap lines only visually
@@ -65,16 +75,16 @@ set showmatch
 
 set wildmenu	    " visual autocomplete for command menu
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Backups, Swap Files
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 set nobackup
 set nowb
 set noswapfile
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Enable syntax highlighting
 syntax on
 
@@ -90,15 +100,15 @@ set background=dark
 
 " set cursorline	" highlight current active line
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " File Types
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " recognize .md files as markdown files
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Text and Indentation
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Use smart tabs
 set smarttab
 
@@ -114,16 +124,16 @@ set backspace=indent,eol,start
 
 filetype indent on	" enable filetype specific indentation
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Movement
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " move vertically by visual line (don't skip wrapped lines) 
 nnoremap j gj
 nnoremap k gk
 
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 " Ctrl-p
-"""""""""""""""""""""""""""""""""""""""""""""""""
+"***********************************************
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'ra'
