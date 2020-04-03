@@ -1,23 +1,23 @@
-"***********************************************
-" Setup Vundler for plugin management
-"***********************************************
-set nocompatible
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" NERD tree - tree explorer
-Plugin 'scrooloose/nerdtree'
-
-" Ctrl-p
-Plugin 'kien/ctrlp.vim'
-
-call vundle#end()            " required
+" "***********************************************
+" " Setup Vundler for plugin management
+" "***********************************************
+" set nocompatible
+" filetype off
+" 
+" " set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" 
+" " let Vundle manage Vundle, required
+" Plugin 'gmarik/Vundle.vim'
+" 
+" " NERD tree - tree explorer
+" Plugin 'scrooloose/nerdtree'
+" 
+" " Ctrl-p
+" Plugin 'kien/ctrlp.vim'
+" 
+" call vundle#end()            " required
 filetype plugin indent on    " required
 
 "***********************************************
@@ -78,9 +78,15 @@ set wildmenu	    " visual autocomplete for command menu
 "***********************************************
 " Backups, Swap Files
 "***********************************************
+"         *backup-table*
+" 'backup' 'writebackup'  action
+"    off       off    no backup made
+"    off       on     backup current file, deleted afterwards (default)
+"    on        off    delete old backup, backup current file
+"    on        on     delete old backup, backup current file
 set nobackup
-set nowb
-set noswapfile
+set writebackup
+" set noswapfile
 
 "***********************************************
 " Colors and Fonts
