@@ -3,7 +3,7 @@
 My personal collection of dotfiles. You should free to use some, all, or none of these. I recommend using [stow](https://www.gnu.org/software/stow/) to set these up on your machine:
 
 ```
-git clone git@github.com:karasinski/dotfiles.git ~/.dotfiles
+git clone git@github.com:ldhalstrom/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 stow tmux
