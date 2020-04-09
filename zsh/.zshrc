@@ -61,7 +61,7 @@ alias serve='python -m SimpleHTTPServer'
 #------------------------------------------------------
 export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
-eval `dircolors ~/.dircolors-solarized/dircolors.ansi-dark`
+eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
 
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
