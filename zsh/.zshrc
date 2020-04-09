@@ -52,11 +52,6 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 
 #------------------------------------------------------
-# Aliases
-#------------------------------------------------------
-alias serve='python -m SimpleHTTPServer'
-
-#------------------------------------------------------
 # Etc
 #------------------------------------------------------
 export DISPLAY=localhost:0.0
@@ -76,3 +71,18 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
+#------------------------------------------------------
+# Aliases
+#------------------------------------------------------
+alias serve='python -m SimpleHTTPServer'
+
+alias open="xdg-open"
+
+#OVERFLOW
+# add overflow executables to path
+export PATH="/home/lhalstro/software/overflow/over2.3/bin:$PATH"
+
+#CHIMERA GRID TOOLS
+alias be='export F_UFMTENDIAN=big'
+alias le='export F_UFMTENDIAN=little'
+alias curendian='echo $F_UFMTENDIAN'
