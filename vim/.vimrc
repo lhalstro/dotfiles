@@ -1,23 +1,34 @@
-" "***********************************************
-" " Setup Vundler for plugin management
-" "***********************************************
-" set nocompatible
-" filetype off
-" 
-" " set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" 
-" " let Vundle manage Vundle, required
-" Plugin 'gmarik/Vundle.vim'
-" 
+"***********************************************
+" Setup Vundler for plugin management
+"***********************************************
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Bundle Installation Instructions:
+" Keep Plugin commands between vundle#begin/end.
+" To install a plugin on github, 
+" - enter Plugin 'username/reponame' in .vimrc
+" - in vim, enter command :PluginInstall (installs all plugins in .vimrc)
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 " " NERD tree - tree explorer
 " Plugin 'scrooloose/nerdtree'
 " 
 " " Ctrl-p
 " Plugin 'kien/ctrlp.vim'
-" 
-" call vundle#end()            " required
+
+" " Enter git commands from vim terminal
+" Plugin 'tpope/vim-fugitive'
+
+" Track git changes in vim like gitgutter for SublimeText
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()            " required
 filetype plugin indent on    " required
 
 "***********************************************

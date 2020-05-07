@@ -15,3 +15,10 @@ You will also need to install oh-my-zsh and pyenv. pyenv has a lot of dependenci
 
 This theme is primarily solarized dark, dircolors were taken from [here](https://github.com/seebi/dircolors-solarized). If tmux looks off then you probably forgot to install [tpm](https://github.com/tmux-plugins/tpm) and install the plugins.
 
+### More Dependencies
+- vim
+    - vundle package manager: https://github.com/VundleVim/Vundle.vim
+	- git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	- Install Plugins:
+	    - Launch vim and run :PluginInstall
+	    - Or, to install from command line: vim +PluginInstall +qall

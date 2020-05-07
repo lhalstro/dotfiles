@@ -1,4 +1,4 @@
-#------------------------------------------------------
+#-----lhalstro-software-----------------------------------
 # oh-my-zsh boiler
 #------------------------------------------------------
 
@@ -54,7 +54,7 @@ export TERM=xterm-256color
 #------------------------------------------------------
 # Etc
 #------------------------------------------------------
-export DISPLAY=localhost:0.0
+# export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
 eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
 
@@ -71,16 +71,63 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
+
+#------------------------------------------------------
+# CFD Tools
+#------------------------------------------------------
+
+#CHIMERA GRID TOOLS
+
+echo "NOT INCLUDEING CGT INSTALL PATHS RIGHT NOW"
+# # cgt exports for building
+# export TCLDIR_INC="/usr/include/tcl8.5"
+# export TKDIR_INC="/usr/include/tcl8.5"
+# export X11DIR_INC="/usr/include"
+# export TCLDIR_SO="/usr/lib/x86_64-linux-gnu"
+# export TKDIR_SOf="/usr/lib/x86_64-linux-gnu"
+# export X11DIR_SO="/usr/lib/x86_64-linux-gnu"
+# export TCL_LIBRARY="/usr/share/tcltk/tcl8.5"
+# export TK_LIBRARY="/usr/share/tcltk/tk8.5"
+# export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu"
+# #last line messes up paraview because it needs to use its local qt5
+#     #seems like cgt works when commenting this out after installing cgt
+#
+# export PYTHON_INC="/usr/include/python2.7"
+# export PYTHONPATH="/home/lhalstro/software/chimera/chimera2.1/smart/bin"
+#
+# # cgt exports for use
+# export PATH=/home/lhalstro/software/chimera/chimera2.1/bin_dp:$PATH
+# export SCRIPTLIB=/home/lhalstro/software/chimera/chimera2.1/scriptlib
+# export CGTBINDIR=/home/lhalstro/software/chimera/chimera2.1/bin_dp
+
+#OVERFLOW
+# add overflow executables to path
+# export PATH="/home/lhalstro/software/overflow/over2.3/bin:$PATH"
+# export PATH="/home/lhalstro/software/overflow/overflow_2.3_distribution/source/over2.3/bin:$PATH"
+export PATH="/home/lhalstro/software/overflow/overflow_2.3_distribution/source/over2.3/bin_dp:$PATH"
+# export PATH="/home/lhalstro/software/overflow/over2.2l/bin:$PATH"
+
+#OVERLST
+alias gridsz="/home/lhalstro/software/overlst/v2.2.0/utils/gridsz/gridsz"
+alias qinfo="/home/lhalstro/software/overlst/v2.2.0/utils/qinfo"
+alias overlst="/home/lhalstro/software/overlst/v2.2.0/bin/overlst"
+
+#PARAVIEW
+export PATH="/home/lhalstro/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin:$PATH"
+
+#path to 'libSurfaceLIC.so' plug in in paraview install
+    #This variable is used by my custom autorendering library for paraview
+export PARAVIEW_LIC_PATH="/home/lhalstro/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/lib/paraview-5.8/plugins/SurfaceLIC/SurfaceLIC.so"
+
 #------------------------------------------------------
 # Aliases
 #------------------------------------------------------
+alias l='ls -lahort'
+
 alias serve='python -m SimpleHTTPServer'
 
 alias open="xdg-open"
 
-#OVERFLOW
-# add overflow executables to path
-export PATH="/home/lhalstro/software/overflow/over2.3/bin:$PATH"
 
 #CHIMERA GRID TOOLS
 alias be='export F_UFMTENDIAN=big'
