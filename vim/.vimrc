@@ -8,6 +8,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Bundle Installation Instructions:
+" Get Vundeler: git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " Keep Plugin commands between vundle#begin/end.
 " To install a plugin on github, 
 " - enter Plugin 'username/reponame' in .vimrc
