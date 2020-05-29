@@ -26,9 +26,13 @@ My personal collection of dotfiles. You should free to use some, all, or none of
         - `cd ~/.themes`
         - `git clone https://github.com/seebi/dircolors-solarized.git`
     - macOS
-        - Install iTerm2 `brew cask install iterm2`
-        - `iTerm2 > Preferences > Profiles > Colors > Color Presets...`
-        - `Solarized Dark` and `Tango Dark` are pretty good
+        - Option 1
+            - In `Terminal.app > Preferences > Profiles`, under `ANSI Colors`,
+            - Crank up the brightness on colors that are too dark and don't contrast with background
+        - Option 2
+            - Install iTerm2 `brew cask install iterm2`
+            - `iTerm2 > Preferences > Profiles > Colors > Color Presets...`
+            - `Solarized Dark` and `Tango Dark` are pretty good
 
 ### Install Profiles
 
