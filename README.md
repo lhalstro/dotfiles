@@ -18,6 +18,7 @@ My personal collection of dotfiles. You should free to use some, all, or none of
 - tmux
     - `sudo apt-get install tmux`
     - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+    - `sudo apt-get install xclip`
 
 - theme
     - `mkdir ~/.themes`
