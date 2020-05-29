@@ -57,13 +57,6 @@ export TERM=xterm-256color
 # export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
 
-# eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
-
-#equivalent to solarized dark on macOS
-    #see: https://github.com/seebi/dircolors-solarized/issues/10
-# export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-# export LSCOLORS=exfxfeaeBxxehehbadacea
-
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
@@ -85,6 +78,15 @@ export PATH=$HOME/bin:$PATH
 # Aliases
 #------------------------------------------------------
 alias l='ls -lahort'
+alias sl="ls"
+alias lss="ls"
+alias cd..="cd .."
+alias cd-="cd -"
+
+alias ipynb="jupyter notebook"
+#size of directories in current level
+alias dirsize="du -sh */"
+
 
 alias serve='python -m SimpleHTTPServer'
 
@@ -98,10 +100,25 @@ case "$OSTYPE" in
     darwin*)
     # On macOS/OS X environment
     export OSNAME="mac"
+
+    # #source Mac-specifc commands
+    # source "${HOME}/.dotfiles/zsh/.zshrc-mac"
+
+    #equivalent to solarized dark on macOS
+    #see: https://github.com/seebi/dircolors-solarized/issues/10
+    # export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+    # export LSCOLORS=exfxfeaeBxxehehbadacea
+
+    # alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+    # alias xfoil="/Applications/Xfoil.app/Contents/Resources/xfoil"
+
     ;;
     linux*)
     # On linux environment
     export OSNAME="linux"
+
+    # #source Linux-specifc commands
+    # source "${HOME}/.dotfiles/zsh/.zshrc-linux"
 
     #solarized dark theme colors
     eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
@@ -118,81 +135,13 @@ esac
 
 
 
+#Source custom .zshrc (if it exists)
+source "${HOME}/.zshrc-custom"
+# source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
 
 
-
-
-
-
-
-
-#------------------------------------------------------
-# CFD Tools
-#------------------------------------------------------
-
-#CHIMERA GRID TOOLS
-
-echo "NOT INCLUDEING CGT INSTALL PATHS RIGHT NOW"
-# # cgt exports for building
-# export TCLDIR_INC="/usr/include/tcl8.5"
-# export TKDIR_INC="/usr/include/tcl8.5"
-# export X11DIR_INC="/usr/include"
-# export TCLDIR_SO="/usr/lib/x86_64-linux-gnu"
-# export TKDIR_SOf="/usr/lib/x86_64-linux-gnu"
-# export X11DIR_SO="/usr/lib/x86_64-linux-gnu"
-# export TCL_LIBRARY="/usr/share/tcltk/tcl8.5"
-# export TK_LIBRARY="/usr/share/tcltk/tk8.5"
-# export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu"
-# #last line messes up paraview because it needs to use its local qt5
-#     #seems like cgt works when commenting this out after installing cgt
-# export PYTHON_INC="/usr/include/python2.7"
-# export PYTHONPATH="$HOME/software/chimera/chimera2.1/smart/bin"
-
-# # #test cgt env vars
-# # ls $TCLDIR_INC
-# # ls "$TKDIR_INC"
-# # ls "$X11DIR_INC"
-# # ls "$TCLDIR_SO"
-# # ls "$TKDIR_SOf"
-# # ls "$X11DIR_SO"
-# # ls "$TCL_LIBRARY"
-# # ls "$TK_LIBRARY"
-# # ls "$LD_LIBRARY_PATH"
-# # ls "$PYTHON_INC"
-# # ls "$PYTHONPATH"
-# # ls $HOME/fake
-
-
-# cgt exports for use
-export PATH=$HOME/software/chimera/chimera2.1/bin_dp:$PATH
-export SCRIPTLIB=$HOME/software/chimera/chimera2.1/scriptlib
-export CGTBINDIR=$HOME/software/chimera/chimera2.1/bin_dp
-
-#CGT Aliases
-alias be='export F_UFMTENDIAN=big'
-alias le='export F_UFMTENDIAN=little'
-alias curendian='echo $F_UFMTENDIAN'
-
-#OVERFLOW
-# add overflow executables to path
-# export PATH="$HOME/software/overflow/over2.3/bin:$PATH"
-# export PATH="$HOME/software/overflow/overflow_2.3_distribution/source/over2.3/bin:$PATH"
-export PATH="$HOME/software/overflow/overflow_2.3_distribution/source/over2.3/bin_dp:$PATH"
-# export PATH="$HOME/software/overflow/over2.2l/bin:$PATH"
-
-#OVERLST
-alias gridsz="$HOME/software/overlst/v2.2.0/utils/gridsz/gridsz"
-alias qinfo="$HOME/software/overlst/v2.2.0/utils/qinfo"
-alias overlst="$HOME/software/overlst/v2.2.0/bin/overlst"
-
-#PARAVIEW
-export PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin:$PATH"
-
-#path to 'libSurfaceLIC.so' plug in in paraview install
-    #This variable is used by my custom autorendering library for paraview
-export PARAVIEW_LIC_PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/lib/paraview-5.8/plugins/SurfaceLIC/SurfaceLIC.so"
-
-
+#source CFD-specifc commands
+source "${HOME}/.dotfiles/zsh/.zshrc-CFD"
 
 
 
