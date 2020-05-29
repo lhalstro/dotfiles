@@ -44,7 +44,11 @@ This theme is primarily solarized dark, dircolors were taken from [here](https:/
 ### To Do
 
 - fix theme colors on macOS
-    -dircolors command doesnt work
+    - ~~dircolors command doesnt work~~
+        - REPLACED WITH LSCOLORS
+    - need solarized dark background for terminal
+    - tmux colors are too dark
+
 
 
 Awesome idea to make os-specific zshrc: https://unix.stackexchange.com/questions/252166/how-to-configure-zshrc-for-specfic-os
