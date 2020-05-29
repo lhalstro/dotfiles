@@ -3,14 +3,12 @@
 #------------------------------------------------------
 
 # Path to your oh-my-zsh configuration.
-#export ZSH=/home/lhalstro/.oh-my-zsh
-export ZSH=/Users/lhalstro/.oh-my-zsh
-echo "need separate paths to ohmyzsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
-# time that soh-my-zsh is loaded.
+# time that oh-my-zsh is loaded.
 
 ZSH_THEME="agnoster"
 
@@ -86,7 +84,7 @@ export VISUAL=$EDITOR
 
 
 #add local bin to path
-export PATH=/home/lhalstro/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 
 #------------------------------------------------------
@@ -109,7 +107,7 @@ echo "NOT INCLUDEING CGT INSTALL PATHS RIGHT NOW"
 # #last line messes up paraview because it needs to use its local qt5
 #     #seems like cgt works when commenting this out after installing cgt
 # export PYTHON_INC="/usr/include/python2.7"
-# export PYTHONPATH="/home/lhalstro/software/chimera/chimera2.1/smart/bin"
+# export PYTHONPATH="$HOME/software/chimera/chimera2.1/smart/bin"
 
 # # #test cgt env vars
 # # ls $TCLDIR_INC
@@ -123,13 +121,13 @@ echo "NOT INCLUDEING CGT INSTALL PATHS RIGHT NOW"
 # # ls "$LD_LIBRARY_PATH"
 # # ls "$PYTHON_INC"
 # # ls "$PYTHONPATH"
-# # ls /home/lhalstro/fake
+# # ls $HOME/fake
 
 
 # cgt exports for use
-export PATH=/home/lhalstro/software/chimera/chimera2.1/bin_dp:$PATH
-export SCRIPTLIB=/home/lhalstro/software/chimera/chimera2.1/scriptlib
-export CGTBINDIR=/home/lhalstro/software/chimera/chimera2.1/bin_dp
+export PATH=$HOME/software/chimera/chimera2.1/bin_dp:$PATH
+export SCRIPTLIB=$HOME/software/chimera/chimera2.1/scriptlib
+export CGTBINDIR=$HOME/software/chimera/chimera2.1/bin_dp
 
 #CGT Aliases
 alias be='export F_UFMTENDIAN=big'
@@ -138,22 +136,22 @@ alias curendian='echo $F_UFMTENDIAN'
 
 #OVERFLOW
 # add overflow executables to path
-# export PATH="/home/lhalstro/software/overflow/over2.3/bin:$PATH"
-# export PATH="/home/lhalstro/software/overflow/overflow_2.3_distribution/source/over2.3/bin:$PATH"
-export PATH="/home/lhalstro/software/overflow/overflow_2.3_distribution/source/over2.3/bin_dp:$PATH"
-# export PATH="/home/lhalstro/software/overflow/over2.2l/bin:$PATH"
+# export PATH="$HOME/software/overflow/over2.3/bin:$PATH"
+# export PATH="$HOME/software/overflow/overflow_2.3_distribution/source/over2.3/bin:$PATH"
+export PATH="$HOME/software/overflow/overflow_2.3_distribution/source/over2.3/bin_dp:$PATH"
+# export PATH="$HOME/software/overflow/over2.2l/bin:$PATH"
 
 #OVERLST
-alias gridsz="/home/lhalstro/software/overlst/v2.2.0/utils/gridsz/gridsz"
-alias qinfo="/home/lhalstro/software/overlst/v2.2.0/utils/qinfo"
-alias overlst="/home/lhalstro/software/overlst/v2.2.0/bin/overlst"
+alias gridsz="$HOME/software/overlst/v2.2.0/utils/gridsz/gridsz"
+alias qinfo="$HOME/software/overlst/v2.2.0/utils/qinfo"
+alias overlst="$HOME/software/overlst/v2.2.0/bin/overlst"
 
 #PARAVIEW
-export PATH="/home/lhalstro/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin:$PATH"
+export PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin:$PATH"
 
 #path to 'libSurfaceLIC.so' plug in in paraview install
     #This variable is used by my custom autorendering library for paraview
-export PARAVIEW_LIC_PATH="/home/lhalstro/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/lib/paraview-5.8/plugins/SurfaceLIC/SurfaceLIC.so"
+export PARAVIEW_LIC_PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/lib/paraview-5.8/plugins/SurfaceLIC/SurfaceLIC.so"
 
 #------------------------------------------------------
 # Aliases

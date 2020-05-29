@@ -20,19 +20,24 @@ My personal collection of dotfiles. You should free to use some, all, or none of
     - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
 - theme
+    - `mkdir ~/.themes`
     - Linux
         - [solarized dark](https://github.com/seebi/dircolors-solarized)
-        - `mkdir ~/.themes`
-        - `cd ~/.themes`
-        - `git clone https://github.com/seebi/dircolors-solarized.git`
+        - `git clone https://github.com/seebi/dircolors-solarized.git ~/.themes/dircolors-solarized`
     - macOS
-        - Option 1
-            - In `Terminal.app > Preferences > Profiles`, under `ANSI Colors`,
-            - Crank up the brightness on colors that are too dark and don't contrast with background
-        - Option 2
-            - Install iTerm2 `brew cask install iterm2`
-            - `iTerm2 > Preferences > Profiles > Colors > Color Presets...`
-            - `Solarized Dark` and `Tango Dark` are pretty good
+        - Terminal Fonts
+            - `git clone https://github.com/powerline/fonts.git ~/.themes/fonts`
+            - `cd ~/.themes/fonts`
+            - `./install.sh`
+            - If you still have "?" instead of symbols in your terminal, choose a different font that ends in "for Powerline" (e.g. Deja Vu)
+        - Terminal Colors
+            - Option 1
+                - In `Terminal.app > Preferences > Profiles`, under `ANSI Colors`,
+                - Crank up the brightness on colors that are too dark and don't contrast with background
+            - Option 2
+                - Install iTerm2 `brew cask install iterm2`
+                - `iTerm2 > Preferences > Profiles > Colors > Color Presets...`
+                - `Solarized Dark` and `Tango Dark` are pretty good
 
 ### Install Profiles
 
@@ -52,6 +57,10 @@ You will also need to install oh-my-zsh and pyenv. pyenv has a lot of dependenci
 This theme is primarily solarized dark, dircolors were taken from [here](https://github.com/seebi/dircolors-solarized). If tmux looks off then you probably forgot to install [tpm](https://github.com/tmux-plugins/tpm) and install the plugins.
 
 ### To Do
+
+- os-specific dotfiles
+    - source custom dotfile for specific system
+    - cat script to show what full dotfile looks like?
 
 - fix theme colors on macOS
     - ~~dircolors command doesnt work~~
