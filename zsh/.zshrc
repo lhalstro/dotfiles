@@ -3,7 +3,9 @@
 #------------------------------------------------------
 
 # Path to your oh-my-zsh configuration.
-export ZSH=/home/lhalstro/.oh-my-zsh
+#export ZSH=/home/lhalstro/.oh-my-zsh
+export ZSH=/Users/lhalstro/.oh-my-zsh
+echo "need separate paths to ohmyzsh"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -120,6 +122,11 @@ export PATH=/home/lhalstro/software/chimera/chimera2.1/bin_dp:$PATH
 export SCRIPTLIB=/home/lhalstro/software/chimera/chimera2.1/scriptlib
 export CGTBINDIR=/home/lhalstro/software/chimera/chimera2.1/bin_dp
 
+#CGT Aliases
+alias be='export F_UFMTENDIAN=big'
+alias le='export F_UFMTENDIAN=little'
+alias curendian='echo $F_UFMTENDIAN'
+
 #OVERFLOW
 # add overflow executables to path
 # export PATH="/home/lhalstro/software/overflow/over2.3/bin:$PATH"
@@ -146,10 +153,7 @@ alias l='ls -lahort'
 
 alias serve='python -m SimpleHTTPServer'
 
-alias open="xdg-open"
+# alias open="xdg-open"
+echo "variable alias for open"
 
 
-#CHIMERA GRID TOOLS
-alias be='export F_UFMTENDIAN=big'
-alias le='export F_UFMTENDIAN=little'
-alias curendian='echo $F_UFMTENDIAN'
