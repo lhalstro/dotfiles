@@ -58,7 +58,14 @@ export TERM=xterm-256color
 #------------------------------------------------------
 # export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
-eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
+#eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
+
+#equivalent to solarized dark on macOS
+    #see: https://github.com/seebi/dircolors-solarized/issues/10
+# export LSCOLORS=exfxfeaeBxxehehbadacea
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+
+echo "need variable dircolors"
 
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
