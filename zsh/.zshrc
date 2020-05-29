@@ -140,8 +140,3 @@ source "${HOME}/.zshrc-custom"
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
 
 
-#source CFD-specifc commands
-source "${HOME}/.dotfiles/zsh/.zshrc-CFD"
-
-
-
