@@ -60,6 +60,7 @@ This theme is primarily solarized dark, dircolors were taken from [here](https:/
 
 - os-specific dotfiles
     - source custom dotfile for specific system
+        - Awesome idea to make os-specific zshrc: https://unix.stackexchange.com/questions/252166/how-to-configure-zshrc-for-specfic-os
     - cat script to show what full dotfile looks like?
 
 - fix theme colors on macOS
@@ -70,6 +71,6 @@ This theme is primarily solarized dark, dircolors were taken from [here](https:/
 
 
 
-Awesome idea to make os-specific zshrc: https://unix.stackexchange.com/questions/252166/how-to-configure-zshrc-for-specfic-os
+
 
 
