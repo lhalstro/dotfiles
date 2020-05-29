@@ -77,7 +77,7 @@ set showcmd	" show last command in the bottom right
 
 
 " Line wrap (number of cols)
-set wrap	    " wrap lines only visually
+set nowrap	    " wrap lines only visually
 set linebreak	    " wrap only at valid characters
 set textwidth=0	    " prevent vim from inserting linebreaks
 set wrapmargin=0    "   in newly entered text
