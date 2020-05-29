@@ -57,15 +57,12 @@ export TERM=xterm-256color
 # export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
 
-#THIS CAN BE BROKEN OFF TO SEPARATE .ZSHRC
-#eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
+# eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
 
 #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
-# export LSCOLORS=exfxfeaeBxxehehbadacea
 # export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
-
-echo "need variable dircolors"
+# export LSCOLORS=exfxfeaeBxxehehbadacea
 
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
@@ -80,11 +77,53 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
-
-
-
 #add local bin to path
 export PATH=$HOME/bin:$PATH
+
+
+#------------------------------------------------------
+# Aliases
+#------------------------------------------------------
+alias l='ls -lahort'
+
+alias serve='python -m SimpleHTTPServer'
+
+
+
+#------------------------------------------------------
+# OS-Specific
+#------------------------------------------------------
+
+case "$OSTYPE" in
+    darwin*)
+    # On macOS/OS X environment
+    export OSNAME="mac"
+    ;;
+    linux*)
+    # On linux environment
+    export OSNAME="linux"
+
+    #solarized dark theme colors
+    eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
+
+    #open files with 'open' command
+    alias open="xdg-open"
+
+    ;;
+    dragonfly*|freebsd*|netbsd*|openbsd*)
+    # On BSD environment
+    export OSNAME="bsd"
+    ;;
+esac
+
+
+
+
+
+
+
+
+
 
 
 #------------------------------------------------------
@@ -153,14 +192,7 @@ export PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bi
     #This variable is used by my custom autorendering library for paraview
 export PARAVIEW_LIC_PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/lib/paraview-5.8/plugins/SurfaceLIC/SurfaceLIC.so"
 
-#------------------------------------------------------
-# Aliases
-#------------------------------------------------------
-alias l='ls -lahort'
 
-alias serve='python -m SimpleHTTPServer'
 
-# alias open="xdg-open"
-echo "variable alias for open"
 
 
