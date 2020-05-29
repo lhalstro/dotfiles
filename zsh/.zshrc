@@ -58,6 +58,8 @@ export TERM=xterm-256color
 #------------------------------------------------------
 # export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
+
+#THIS CAN BE BROKEN OFF TO SEPARATE .ZSHRC
 #eval `dircolors ~/.themes/dircolors-solarized/dircolors.ansi-dark`
 
 #equivalent to solarized dark on macOS
