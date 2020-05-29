@@ -63,7 +63,7 @@ export DEFAULT_USER=lhalstro
 #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
 # export LSCOLORS=exfxfeaeBxxehehbadacea
-export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
+# export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 echo "need variable dircolors"
 
