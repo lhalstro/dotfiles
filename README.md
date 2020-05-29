@@ -1,7 +1,7 @@
 # dotfiles
 
-My personal collection of dotfiles, originally taken from @karasinsi. You should free to use some, all, or none of these.
-
+My personal collection of dotfiles, originally taken from @karasinsi. You should feel free to use some, all, or none of these.
+ 
 ### Install Profiles
 
 I recommend using [stow](https://www.gnu.org/software/stow/) to set these up on your machine:
