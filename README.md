@@ -19,10 +19,16 @@ My personal collection of dotfiles. You should free to use some, all, or none of
     - `sudo apt-get install tmux`
     - `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 
-- theme [solarized dark](https://github.com/seebi/dircolors-solarized)
-    - `mkdir ~/.themes`
-    - `cd ~/.themes`
-    - `git clone https://github.com/seebi/dircolors-solarized.git`
+- theme
+    - Linux
+        - [solarized dark](https://github.com/seebi/dircolors-solarized)
+        - `mkdir ~/.themes`
+        - `cd ~/.themes`
+        - `git clone https://github.com/seebi/dircolors-solarized.git`
+    - macOS
+        - Install iTerm2 `brew cask install iterm2`
+        - `iTerm2 > Preferences > Profiles > Colors > Color Presets...`
+        - `Solarized Dark` and `Tango Dark` are pretty good
 
 ### Install Profiles
 
