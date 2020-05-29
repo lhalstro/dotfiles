@@ -72,6 +72,12 @@ export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 
+
+
+#add local bin to path
+export PATH=/home/lhalstro/bin:$PATH
+
+
 #------------------------------------------------------
 # CFD Tools
 #------------------------------------------------------
@@ -91,14 +97,28 @@ echo "NOT INCLUDEING CGT INSTALL PATHS RIGHT NOW"
 # export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu"
 # #last line messes up paraview because it needs to use its local qt5
 #     #seems like cgt works when commenting this out after installing cgt
-#
 # export PYTHON_INC="/usr/include/python2.7"
 # export PYTHONPATH="/home/lhalstro/software/chimera/chimera2.1/smart/bin"
-#
-# # cgt exports for use
-# export PATH=/home/lhalstro/software/chimera/chimera2.1/bin_dp:$PATH
-# export SCRIPTLIB=/home/lhalstro/software/chimera/chimera2.1/scriptlib
-# export CGTBINDIR=/home/lhalstro/software/chimera/chimera2.1/bin_dp
+
+# # #test cgt env vars
+# # ls $TCLDIR_INC
+# # ls "$TKDIR_INC"
+# # ls "$X11DIR_INC"
+# # ls "$TCLDIR_SO"
+# # ls "$TKDIR_SOf"
+# # ls "$X11DIR_SO"
+# # ls "$TCL_LIBRARY"
+# # ls "$TK_LIBRARY"
+# # ls "$LD_LIBRARY_PATH"
+# # ls "$PYTHON_INC"
+# # ls "$PYTHONPATH"
+# # ls /home/lhalstro/fake
+
+
+# cgt exports for use
+export PATH=/home/lhalstro/software/chimera/chimera2.1/bin_dp:$PATH
+export SCRIPTLIB=/home/lhalstro/software/chimera/chimera2.1/scriptlib
+export CGTBINDIR=/home/lhalstro/software/chimera/chimera2.1/bin_dp
 
 #OVERFLOW
 # add overflow executables to path
