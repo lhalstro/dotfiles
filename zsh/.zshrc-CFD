@@ -22,45 +22,38 @@ echo "NOT INCLUDEING CGT INSTALL PATHS RIGHT NOW"
 # export PYTHON_INC="/usr/include/python2.7"
 # export PYTHONPATH="$HOME/software/chimera/chimera2.1/smart/bin"
 
-# # #test cgt env vars
-# # ls $TCLDIR_INC
-# # ls "$TKDIR_INC"
-# # ls "$X11DIR_INC"
-# # ls "$TCLDIR_SO"
-# # ls "$TKDIR_SOf"
-# # ls "$X11DIR_SO"
-# # ls "$TCL_LIBRARY"
-# # ls "$TK_LIBRARY"
-# # ls "$LD_LIBRARY_PATH"
-# # ls "$PYTHON_INC"
-# # ls "$PYTHONPATH"
-# # ls $HOME/fake
-
-
 # cgt exports for use
-export PATH=$HOME/software/chimera/chimera2.1/bin_dp:$PATH
 export SCRIPTLIB=$HOME/software/chimera/chimera2.1/scriptlib
 export CGTBINDIR=$HOME/software/chimera/chimera2.1/bin_dp
+#Build Scripts need CGTBINDIR scripts in path, BUT...
+    #one of those scripts is 'pip', which is not cool
+    #so make folder `bin_dp_custom` next to `bin_dp` with links to all EXCEPT pip
+export PATH=$HOME/software/chimera/chimera2.1/bin_dp_custom:$PATH
+
 
 #CGT Aliases
+alias og='overgrid'
 alias be='export F_UFMTENDIAN=big'
 alias le='export F_UFMTENDIAN=little'
 alias curendian='echo $F_UFMTENDIAN'
 
 #OVERFLOW
 # add overflow executables to path
-# export PATH="$HOME/software/overflow/over2.3/bin:$PATH"
-# export PATH="$HOME/software/overflow/overflow_2.3_distribution/source/over2.3/bin:$PATH"
 export PATH="$HOME/software/overflow/overflow_2.3_distribution/source/over2.3/bin_dp:$PATH"
 # export PATH="$HOME/software/overflow/over2.2l/bin:$PATH"
 
 #OVERLST
 alias gridsz="$HOME/software/overlst/v2.2.0/utils/gridsz/gridsz"
-alias qinfo="$HOME/software/overlst/v2.2.0/utils/qinfo"
 alias overlst="$HOME/software/overlst/v2.2.0/bin/overlst"
+#get qinfo from cgt now
+# alias qinfo="$HOME/software/overlst/v2.2.0/utils/qinfo"
 
 #PARAVIEW
-export PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin:$PATH"
+#full paraview bin overwrites 'mpiexec', which is not good, so link them to local bin instead
+    # export PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin:$PATH"
+    #ln -s $HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin/paraview ~/bin/paraview
+    #ln -s $HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/bin/paraview ~/bin/pvbatch
+alias pv="paraview"
 #path to 'libSurfaceLIC.so' plug in in paraview install
     #This variable is used by my custom autorendering library for paraview
 export PARAVIEW_LIC_PATH="$HOME/software/paraview/ParaView-5.8.0-MPI-Linux-Python3.7-64bit/lib/paraview-5.8/plugins/SurfaceLIC/SurfaceLIC.so"
