@@ -7,7 +7,7 @@ My personal collection of dotfiles, originally taken from @karasinsi. You should
 I recommend using [stow](https://www.gnu.org/software/stow/) to set these up on your machine:
 
 ```
-git clone git@github.com:ldhalstrom/dotfiles.git ~/.dotfiles
+git clone https://github.com/lhalstro/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 stow tmux
@@ -34,7 +34,6 @@ stow zsh
     - `sudo apt-get install xclip`
 
 - theme
-    - `mkdir ~/.themes`
     - Linux
         - [solarized dark](https://github.com/seebi/dircolors-solarized)
         - `git clone https://github.com/seebi/dircolors-solarized.git ~/.themes/dircolors-solarized`
