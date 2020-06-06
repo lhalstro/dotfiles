@@ -139,7 +139,9 @@ esac
 
 
 #Source custom .zshrc (if it exists)
-source "${HOME}/.zshrc-custom"
+if [ -f "${HOME}/.zshrc-custom" ]; then
+    source "${HOME}/.zshrc-custom"
+fi
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
 
 
