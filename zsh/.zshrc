@@ -64,6 +64,10 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+# Custom Python Modules
+if [ -d "${HOME}/lib" ]; then
+    export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
+fi
 
 # vim please
 export EDITOR="vim"
