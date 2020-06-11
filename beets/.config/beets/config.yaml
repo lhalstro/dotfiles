@@ -1,7 +1,8 @@
 # Beets configuration --------------------------------------------------------
 
 #Directory that music library will be stored in (where 'import' moves music to)
-directory: /mnt/e/Media/Music
+directory: /media/lhalstro/neso/Media/Music
+library: /media/lhalstro/neso/Media/Music/library.db
 
 import:
     # write metadata to music files
