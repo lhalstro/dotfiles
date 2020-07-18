@@ -64,6 +64,10 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+# Custom Python Modules
+if [ -d "${HOME}/lib" ]; then
+    export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
+fi
 
 # vim please
 export EDITOR="vim"
@@ -116,6 +120,14 @@ case "$OSTYPE" in
     linux*)
     # On linux environment
     export OSNAME="linux"
+
+    #Check if on Windows Subsystem for Linux (WSL)
+    unameout="$(uname -r)"
+    if [[ $unameout = *microsoft* ]]; then
+	export ONWSL=true
+    else
+	export ONWSL=false
+    fi
 
     # #source Linux-specifc commands
     # source "${HOME}/.dotfiles/zsh/.zshrc-linux"
