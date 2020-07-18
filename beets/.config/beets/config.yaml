@@ -2,6 +2,8 @@
 
 #Directory that music library will be stored in (where 'import' moves music to)
 directory: /mnt/e/Media/Music
+#location to save library metadata (keep with music colletion so you can use x-platform)
+library: /mnt/e/Media/Music/library.db
 
 import:
     # write metadata to music files
