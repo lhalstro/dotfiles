@@ -1,6 +1,13 @@
 # Beets configuration --------------------------------------------------------
 
 #Directory that music library will be stored in (where 'import' moves music to)
+
+# #PATH ON WSL
+# directory: /mnt/e/Media/Music
+# #location to save library metadata (keep with music colletion so you can use x-platform)
+# library: /mnt/e/Media/Music/library.db
+
+#PATH ON LINUX
 directory: /media/lhalstro/neso/Media/Music
 library: /media/lhalstro/neso/Media/Music/library.db
 
@@ -129,6 +136,7 @@ plugins: [
     embedart,
     lastgenre,
     scrub,
+    alternatives,
 ]
 pluginpath: []
 
@@ -156,3 +164,13 @@ replaygain:
 
 scrub:
     auto: yes
+
+#plug-in for making alternative collections for syncing
+alternatives:
+  #alternative group tag
+  alt-googlemusic:
+    directory: /media/lhalstro/neso/Media/beetsalt/googlemusic
+    paths:
+      default: $albumartist - $album (%ifdef{original_year,$original_year,$year})/$track - $albumartist - $title
+    formats: link
+    query: "alt-googlemusic:true"
