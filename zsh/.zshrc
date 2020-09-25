@@ -123,6 +123,14 @@ case "$OSTYPE" in
     # On linux environment
     export OSNAME="linux"
 
+    #Check if on Windows Subsystem for Linux (WSL)
+    unameout="$(uname -r)"
+    if [[ $unameout = *microsoft* ]]; then
+	export ONWSL=true
+    else
+	export ONWSL=false
+    fi
+
     # #source Linux-specifc commands
     # source "${HOME}/.dotfiles/zsh/.zshrc-linux"
 
