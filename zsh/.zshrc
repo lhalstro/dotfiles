@@ -87,13 +87,14 @@ alias lss="ls"
 alias cd..="cd .."
 alias cd-="cd -"
 
+alias untar="tar -xvf"
+
 alias ipynb="jupyter notebook"
 #size of directories in current level
 alias dirsize="du -sh */"
 
 
 alias serve='python -m SimpleHTTPServer'
-
 
 
 #------------------------------------------------------
