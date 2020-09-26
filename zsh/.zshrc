@@ -87,7 +87,7 @@ alias lss="ls"
 alias cd..="cd .."
 alias cd-="cd -"
 
-alias sourcezsh='source "${HOME}/.zshrc"'
+alias sourcez='source "${HOME}/.zshrc"'
 alias untar="tar -xvf"
 
 alias ipynb="jupyter notebook"
