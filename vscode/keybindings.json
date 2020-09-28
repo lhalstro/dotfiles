@@ -1,4 +1,7 @@
 // Place your key bindings in this file to override the defaultsauto[]
+// This file should be located in:
+//    macOS: `~/Library/Application Support/Code/User/.`
+//    linux: `~/.config/Code/User/.`
 [
     {
         "key": "cmd+j cmd+u",
