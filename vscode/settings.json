@@ -6,6 +6,8 @@
     // EXTENSIONS TO INSTALL:
         // Python, Remote SSH, Latex workshop, latex preview?, Code Spell Checker
 
+
+    // macbook pro has really small text, zooming in helps
     "window.zoomLevel": 1,
 
 
