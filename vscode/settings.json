@@ -1,0 +1,77 @@
+{
+    // EXTENSIONS TO INSTALL:
+        // Python, Remote SSH, Latex workshop, latex preview?, Code Spell Checker
+
+    "window.zoomLevel": 1,
+
+
+    // Columns at which to show vertical rulers
+    "editor.rulers": [
+        // 73,
+        80,
+    ],
+
+
+    // THEME SETTINGS
+
+    // "workbench.iconTheme": "Monokai Pro Icons",
+    // "workbench.iconTheme": "Seti",
+    "workbench.colorTheme": "Monokai",
+
+    // Change monokai comment color to be something you can actually see
+    "editor.tokenColorCustomizations": {
+        "[Monokai]": {
+            // "comments": "#6A9955"
+            "comments": "#a88c57"
+        }
+    },
+
+
+
+
+    //Trim unneeded whitespace when you save
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+
+
+    //Default view to open latex preview in ("tab" for within VS Code)
+    "latex-workshop.view.pdf.viewer": "tab",
+
+
+
+
+    //SETTINGS FOR CODE SPELL CHECKER EXTENSION
+
+    // Specify file types to spell check.
+    "cSpell.enabledLanguageIds": [
+        "markdown",
+        "plaintext",
+        "typescript",
+        "typescriptreact",
+        "yml",
+        "latex",
+    ],
+
+    // Enable / Disable the spell checker.
+    "cSpell.enabled": true,
+
+    // Display the spell checker status on the status bar.
+    "cSpell.showStatus": false,
+
+    // Words to add to dictionary for a workspace.
+    "cSpell.words": [],
+    "cSpell.enableFiletypes": [
+        "python",
+
+    ],
+    "cSpell.userWords": [
+        "halstrom",
+        "hrvip"
+    ],
+    "cSpell.ignoreWords": [
+    ],
+
+
+
+}
