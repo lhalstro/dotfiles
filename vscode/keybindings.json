@@ -3,12 +3,17 @@
 //    macOS: `~/Library/Application Support/Code/User/.`
 //    linux: `~/.config/Code/User/.`
 [
+    // Make selection upper/lower case
     {
-        "key": "cmd+j cmd+u",
+        "key": "ctrl+j ctrl+u",
         "command": "editor.action.transformToUppercase"
     },
     {
-        "key": "cmd+j cmd+l",
+        "key": "ctrl+j ctrl+l",
         "command": "editor.action.transformToLowercase"
-    }
+    },
+
+    //Unify multiselect across linux/macos
+
+
 ]
