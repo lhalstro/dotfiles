@@ -6,7 +6,10 @@
     // EXTENSIONS TO INSTALL:
         // Python, Remote SSH, Latex workshop, latex preview?, Code Spell Checker
 
-    "window.zoomLevel": 1,
+    // "window.zoomLevel": 1,
+
+    // click muliple cursors with the ctrl/cmd key instead of alt
+    "editor.multiCursorModifier": "ctrlCmd",
 
 
     // Columns at which to show vertical rulers
