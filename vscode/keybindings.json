@@ -45,5 +45,23 @@
         "command": "-cursorUndo",
         "when": "textInputFocus"
     },
+    // Cross-Platform Go To Line
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.gotoLine"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    // Cross-Platform Go To File
+    {
+        "key": "ctrl+alt+f",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "cmd+p",
+        "command": "-workbench.action.quickOpen"
+    },
 
 ]

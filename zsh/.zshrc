@@ -54,7 +54,13 @@ export TERM=xterm-256color
 #------------------------------------------------------
 # Etc
 #------------------------------------------------------
+
+#add local bin to path
+export PATH=$HOME/bin:$PATH
+
+#For x11 (but not working on macOS catalina)
 export DISPLAY=localhost:0.0
+
 export DEFAULT_USER=lhalstro
 
 # colored completion - use my LS_COLORS
@@ -74,8 +80,11 @@ export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
-#add local bin to path
-export PATH=$HOME/bin:$PATH
+# VS Code aliases (I like these better than the ohmyzsh plugin)
+alias c="code ."
+alias cn="code -n"
+alias cr="code"
+alias cdiff="code --diff"
 
 
 #------------------------------------------------------
@@ -86,6 +95,15 @@ alias sl="ls"
 alias lss="ls"
 alias cd..="cd .."
 alias cd-="cd -"
+
+#smart grep (list, associated lines)
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+#get size of or find directories or files
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+alias fd='find . -type d -name'
+alias ff='find . -type f -name'
+
 
 alias sourcez='source "${HOME}/.zshrc"'
 alias untar="tar -xvf"
