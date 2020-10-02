@@ -54,7 +54,7 @@ export TERM=xterm-256color
 #------------------------------------------------------
 # Etc
 #------------------------------------------------------
-# export DISPLAY=localhost:0.0
+export DISPLAY=localhost:0.0
 export DEFAULT_USER=lhalstro
 
 # colored completion - use my LS_COLORS
