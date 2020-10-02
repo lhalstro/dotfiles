@@ -54,7 +54,13 @@ export TERM=xterm-256color
 #------------------------------------------------------
 # Etc
 #------------------------------------------------------
+#
+#add local bin to path
+export PATH=$HOME/bin:$PATH
+
+#For x11 (but not working on macOS catalina)
 export DISPLAY=localhost:0.0
+
 export DEFAULT_USER=lhalstro
 
 # colored completion - use my LS_COLORS
@@ -73,9 +79,6 @@ fi
 export EDITOR="vim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
- 
-#add local bin to path
-export PATH=$HOME/bin:$PATH
 
 # VS Code aliases (I like these better than the ohmyzsh plugin)
 alias c="code ."
