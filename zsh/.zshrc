@@ -97,6 +97,9 @@ alias lss="ls"
 alias cd..="cd .."
 alias cd-="cd -"
 
+#pwd to absolute path ("physical")
+alias pwdp="pwd -P"
+
 #smart grep (list, associated lines)
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 #get size of or find directories or files
