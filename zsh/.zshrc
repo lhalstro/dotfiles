@@ -1,4 +1,13 @@
-#-----lhalstro-software-----------------------------------
+#-----lhalstro-zshrc-----------------------------------
+
+#LOAD CUSTOM SETTINGS THAT NEED TO BE FIRST
+    #EVENTUALLY SOURCE FROM zshrc-custom, USING LOGIC***************************
+if [ -f "${HOME}/.zshrc-pre" ]; then
+    source "${HOME}/.zshrc-pre"
+fi
+
+
+#------------------------------------------------------
 # oh-my-zsh boiler
 #------------------------------------------------------
 
@@ -6,15 +15,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-
 ZSH_THEME="agnoster"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -44,7 +45,14 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git battery command-not-found extract sublime tmux)
+plugins=(
+    git        #git aliases
+    battery    #show battery status information???
+    command-not-found #suggests commands when you enter one that doesnt exsit
+    extract    #function to extract many kinds of archive files `extract file ?`
+    sublime    #sublime text shortcuts
+    tmux       #tmux aliases, compatibility checking
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -66,13 +74,16 @@ export DEFAULT_USER=lhalstro
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-# pyenv config
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-# Custom Python Modules
-if [ -d "${HOME}/lib" ]; then
-    export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
+## LOAD PYENV (IF INSTALLED)
+if [ -d "${HOME}/.pyenv" ]; then
+    # pyenv config
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    # Custom Python Modules
+    if [ -d "${HOME}/lib" ]; then
+        export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
+    fi
 fi
 
 # vim please
@@ -117,27 +128,23 @@ alias serve='python -m SimpleHTTPServer'
 
 
 #------------------------------------------------------
-# OS-Specific
+# OS-Specific Settings
 #------------------------------------------------------
 
 case "$OSTYPE" in
     darwin*)
+    #--------------------------
     # On macOS/OS X environment
     export OSNAME="mac"
-
-    # #source Mac-specifc commands
-    # source "${HOME}/.dotfiles/zsh/.zshrc-mac"
 
     #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
     # export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
     # export LSCOLORS=exfxfeaeBxxehehbadacea
 
-    # alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-    # alias xfoil="/Applications/Xfoil.app/Contents/Resources/xfoil"
-
     ;;
     linux*)
+    #---------------------
     # On linux environment
     export OSNAME="linux"
 
@@ -160,17 +167,18 @@ case "$OSTYPE" in
 
     ;;
     dragonfly*|freebsd*|netbsd*|openbsd*)
+    #--------------------
     # On BSD environment
     export OSNAME="bsd"
     ;;
 esac
 
 
+#-------------------------------------------------------------------------------
+#Source custom .zshrc (if it exists). Use for settings specific to local machine
+#-------------------------------------------------------------------------------
 
-#Source custom .zshrc (if it exists)
 if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
 fi
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
-
-
