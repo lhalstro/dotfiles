@@ -1,10 +1,20 @@
+#------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
+#------------------------------------------------------
+#Main zshrc for unified settings across Linux and macOS
 
-#LOAD CUSTOM SETTINGS THAT NEED TO BE FIRST
-    #EVENTUALLY SOURCE FROM zshrc-custom, USING LOGIC***************************
-if [ -f "${HOME}/.zshrc-pre" ]; then
-    source "${HOME}/.zshrc-pre"
+#Add local system-specific commands to: ~/.zshrc-custom
+    #this file is sourced before AND after the below boiler
+    #so you can provide or rely on dependencies as needed
+
+#------------------------------------------------------
+# LOAD CUSTOM SETTINGS THAT NEED TO BE FIRST
+#------------------------------------------------------
+export PREZSHRC=1
+if [ -f "${HOME}/.zshrc-custom" ]; then
+    source "${HOME}/.zshrc-custom"
 fi
+export PREZSHRC=0
 
 
 #------------------------------------------------------
