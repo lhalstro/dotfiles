@@ -103,9 +103,9 @@ export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 # VS Code aliases (I like these better than the ohmyzsh plugin)
-alias c="code ."
+alias c.="code ."
 alias cn="code -n"
-alias cr="code"
+alias c="code"
 alias cdiff="code --diff"
 
 
