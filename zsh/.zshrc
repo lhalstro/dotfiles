@@ -59,7 +59,8 @@ export TERM=xterm-256color
 export PATH=$HOME/bin:$PATH
 
 #For x11 (but not working on macOS catalina)
-export DISPLAY=localhost:0.0
+    #including this makes overgrid not work
+# export DISPLAY=localhost:0.0
 
 export DEFAULT_USER=lhalstro
 
