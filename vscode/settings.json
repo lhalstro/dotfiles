@@ -57,9 +57,6 @@
     //--------------------------------------------------------------------------
     // SETTINGS FOR INSTALLED EXTENSIONS
 
-    //Default view to open latex preview in ("tab" for within VS Code)
-    "latex-workshop.view.pdf.viewer": "tab",
-
 
 
 
@@ -113,6 +110,12 @@
 
     //VS CODE DIFF VIEWER
     "diffEditor.ignoreTrimWhitespace": false,
+
+
+    // LaTeX Workshop
+
+    //Default view to open latex preview in ("tab" for within VS Code)
+    "latex-workshop.view.pdf.viewer": "tab",
 
 
 
