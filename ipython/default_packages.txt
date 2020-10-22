@@ -1,0 +1,15 @@
+#Install (or update) the python packages I commonly use
+#Run with: pip install --upgrade -r default_packages.txt
+
+pip #work with up-to-date pip
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+ipython
+
+pylint #VS Code python extension wants this
+
+tables #?
+
