@@ -4,10 +4,23 @@
     //    linux: `~/.config/Code/User/.`
 
     // EXTENSIONS TO INSTALL:
-        // Python, Remote SSH, Latex workshop, latex preview?, Code Spell Checker
+        // Code Languages: Python, Modern Fortran, TCL, Matlab
+        // Latex workshop, latex preview?,
+        // Remote-SSH,  Code Spell Checker, Diff Folders
+
+
+    //-------------------------------------------------------------------------
+    // GENERAL SETTINGS
 
     // click muliple cursors with the ctrl/cmd key instead of alt
     "editor.multiCursorModifier": "ctrlCmd",
+
+    // choose which language applies to a file extension
+    "files.associations": {
+        "*.pbs": "shellscript",
+        ".zshrc-custom": "shellscript",  //my custom zshrc addition
+    },
+
 
     // macbook pro has really small text, zooming in helps
     "window.zoomLevel": 1,
@@ -18,7 +31,7 @@
         80,
     ],
 
-
+    //-------------------------------------------------------------------------
     // THEME SETTINGS
 
     // "workbench.iconTheme": "Monokai Pro Icons",
@@ -41,6 +54,8 @@
     "files.trimFinalNewlines": true,
     "files.insertFinalNewline": true,
 
+    //--------------------------------------------------------------------------
+    // SETTINGS FOR INSTALLED EXTENSIONS
 
     //Default view to open latex preview in ("tab" for within VS Code)
     "latex-workshop.view.pdf.viewer": "tab",
@@ -78,6 +93,30 @@
     ],
     "cSpell.ignoreWords": [
     ],
+
+    // REMOTE SSH
+    // When connecting with RSA token, need more time to enter passcodes
+    "remote.SSH.connectTimeout": 120,
+
+    //Folder Diff Extension
+    "l13Diff.confirmCopy": false,
+    "l13Diff.exclude": [
+        "**/.DS_Store",
+        "**/.git",
+        "**/.hg",
+        "**/.svn",
+        "**/CVS",
+        "**/node_modules",
+        "**/*~",
+        "**/*.bk0",
+    ],
+
+    //VS CODE DIFF VIEWER
+    "diffEditor.ignoreTrimWhitespace": false,
+
+
+
+    ///////////////////////////
 
 
 
