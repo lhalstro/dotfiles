@@ -1,7 +1,7 @@
 # dotfiles
 
 My personal collection of dotfiles, originally taken from @karasinsi. You should feel free to use some, all, or none of these.
- 
+
 ### Install Profiles
 
 I recommend using [stow](https://www.gnu.org/software/stow/) to set these up on your machine:
@@ -43,6 +43,9 @@ stow zsh
             - `cd ~/.themes/fonts`
             - `./install.sh`
             - If you still have "?" instead of symbols in your terminal, choose a different font that ends in "for Powerline" (e.g. Deja Vu)
+            - This method works for VNC, too.
+                - In `~/.Xresources` on machine where you run `vncserver`, add:
+                - `*.vt100.faceName: xft:DejaVu Sans Mono for Powerline:pixelsize=12`
         - Terminal Colors
             - Option 1
                 - In `Terminal.app > Preferences > Profiles`, under `ANSI Colors`,
@@ -51,9 +54,3 @@ stow zsh
                 - Install iTerm2 `brew cask install iterm2`
                 - `iTerm2 > Preferences > Profiles > Colors > Color Presets...`
                 - `Solarized Dark` and `Tango Dark` are pretty good
-
-
-
-
-
-
