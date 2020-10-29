@@ -113,6 +113,7 @@ alias cdiff="code --diff"
 # Aliases
 #------------------------------------------------------
 alias l='ls -lahort'
+alias lsl='ls -l' #list, showing permissions
 alias sl="ls"
 alias lss="ls"
 alias cd..="cd .."
@@ -120,6 +121,8 @@ alias cd-="cd -"
 
 #pwd to absolute path ("physical")
 alias pwdp="pwd -P"
+#absolute path to file, including filename
+alias rl="readlink -f"
 
 #smart grep (list, associated lines)
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -131,6 +134,9 @@ alias ff='find . -type f -name'
 
 
 alias sourcez='source "${HOME}/.zshrc"'
+alias viz='vi "${HOME}/.zshrc"'
+alias vizc='vi "${HOME}/.zshrc-custom"'
+
 alias untar="tar -xvf"
 
 alias ipynb="jupyter notebook"
