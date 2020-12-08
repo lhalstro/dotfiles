@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 
 
 
+
+
 #functions for quick plotting
 
 def plotdfs(dfs, x, y):
@@ -21,6 +23,8 @@ def plotdfs(dfs, x, y):
 
     for k in dfs.keys():
         plt.plot(dfs[k][x], dfs[k][y], label=k)
+    plt.xlabel(x)
+    plt.ylabel(y)
     plt.legend()
     plt.show()
 
