@@ -5,16 +5,6 @@ echo "debug: starting zshrc"
 
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
-#------------------------------------------------------
-#Main zshrc for unified settings across Linux and macOS
-
-#Add local system-specific commands to: ~/.zshrc-custom
-    #this file is sourced before AND after the below boiler
-    #so you can provide or rely on dependencies as needed
-
-#------------------------------------------------------
-# LOAD CUSTOM SETTINGS THAT NEED TO BE FIRST
-#------------------------------------------------------
 export PREZSHRC=1
 if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
@@ -73,7 +63,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # use 256 color terminal
+    #original
 export TERM=xterm-256color
+    #xterm wasnt available on all systems, but also, below command messed up my tmux
+# export TERM=screen-256color
+# #     # more generic, compatible with PFE (default is screen-256color
+# # export TERM=screen
 
 #------------------------------------------------------
 # Etc
@@ -81,6 +76,8 @@ export TERM=xterm-256color
 #
 #add local bin to path
 export PATH=$HOME/bin:$PATH
+#also this local bin for local installs
+export PATH=$HOME/local/bin:$PATH
 
 #For x11 (but not working on macOS catalina)
     #including this makes overgrid not work
@@ -91,17 +88,17 @@ export DEFAULT_USER=lhalstro
 # colored completion - use my LS_COLORS
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-## LOAD PYENV (IF INSTALLED)
-if [ -d "${HOME}/.pyenv" ]; then
-    # pyenv config
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-# Custom Python Modules
-if [ -d "${HOME}/lib" ]; then
-    export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
-fi
+# ## LOAD PYENV (IF INSTALLED)
+# if [ -d "${HOME}/.pyenv" ]; then
+#     # pyenv config
+#     export PYENV_ROOT="$HOME/.pyenv"
+#     export PATH="$PYENV_ROOT/bin:$PATH"
+#     eval "$(pyenv init -)"
+# fi
+# # Custom Python Modules
+# if [ -d "${HOME}/lib" ]; then
+#     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
+# fi
 
 # vim please
 export EDITOR="vim"
@@ -121,10 +118,13 @@ alias czc='code "${HOME}/.zshrc-custom"'
 #------------------------------------------------------
 alias l='ls -lahort'
 alias lsl='ls -l' #list, showing permissions
+alias lss='ls -lShr' #list by size, biggest lowest
 alias sl="ls"
-alias lss="ls"
+# alias lss="ls"
 alias cd..="cd .."
 alias cd-="cd -"
+
+alias lns="ln -s"
 
 #pwd to absolute path ("physical")
 alias pwdp="pwd -P"
@@ -142,11 +142,34 @@ alias ff='find . -type f -name'
 #size of directories in current level
 alias dirsize="du -sh */"
 
+#faster imagemagick
+alias disp="display"
+alias di="display"
+
+
 sedf () {
     #use sed to file/replace strings in a file
     #$1=find, $2=replace, $3=file
     sed -i "s/$1/$2/g" $3
 }
+#convert a symbolic link into a hard copy
+delink () {
+    if [ -L $1 ] && [ -e $1 ]; then
+        cp -p --remove-destination `readlink $1` $1
+    fi
+}
+
+#b () {find . -name "$2" -exec $1 {} \; }
+b () {
+    #given command, then list of inputs, execute in a loop
+    cmd=$1
+    inps=(${@:2})
+    for inp in $inps;
+    do
+	$cmd $inp
+    done
+}
+
 
 alias sourcez='source "${HOME}/.zshrc"'
 alias viz='vi "${HOME}/.zshrc"'
@@ -226,4 +249,23 @@ if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
 fi
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+
+
+
+## LOAD PYENV (IF INSTALLED)
+if [ -d "${HOME}/.pyenv" ]; then
+    # pyenv config
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
+# Custom Python Modules
+if [ -d "${HOME}/lib" ]; then
+    export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
+fi
+
+#Allows import of overdyn without typing it twice (prepends in front of original overdyn)
+# export PYTHONPATH=":${HOME}/lib/python/overdyn${PYTHONPATH}"
+module load overdyn
+
 echo "debug: ending zshrc"
