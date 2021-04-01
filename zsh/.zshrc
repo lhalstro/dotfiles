@@ -146,6 +146,8 @@ alias dirsize="du -sh */"
 
 alias serve='python -m SimpleHTTPServer'
 
+#view with imagemagick
+alias di="display"
 
 #------------------------------------------------------
 # OS-Specific Settings
