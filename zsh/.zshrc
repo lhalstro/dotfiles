@@ -230,4 +230,3 @@ if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
 fi
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
-echo "debug: ending zshrc"
