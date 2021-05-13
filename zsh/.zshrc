@@ -186,8 +186,8 @@ tog_gitstat () {
     #getting the status of a git repo can make oh-my-zsh very slow
     #Use this command to toggle between globally showing status or not
     gstat=`grep hide-status ${HOME}/.gitconfig | sed 's/[^0-9]//g'`
-    if [ "$gstat" = "1" ]; then 
-	gstat2=0 
+    if [ "$gstat" = "1" ]; then
+	gstat2=0
     else
 	gstat2=1
     fi
@@ -271,6 +271,11 @@ fi
 
 #Allows import of overdyn without typing it twice (prepends in front of original overdyn)
 # export PYTHONPATH=":${HOME}/lib/python/overdyn${PYTHONPATH}"
-module load overdyn
+if command -v module &> /dev/null
+then
+    echo "module is present. Assuming on PFE. Loading overdyn via module. MOVE THIS TO .ZSHRC-CUSTOM"
+    module load overdyn
+fi
+
 
 echo "debug: ending zshrc"
