@@ -1,8 +1,3 @@
-echo "debug: starting zshrc"
-
-
-
-
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
 export PREZSHRC=1
@@ -182,6 +177,10 @@ mytar () {tar -czvf ${1}.tar.gz $1}
 
 alias ipynb="jupyter notebook"
 
+#view with imagemagick
+alias di="display"
+
+#toggle whether git status/branch is shown in commandline
 tog_gitstat () {
     #getting the status of a git repo can make oh-my-zsh very slow
     #Use this command to toggle between globally showing status or not
@@ -254,6 +253,7 @@ if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
 fi
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+<<<<<<< HEAD
 
 
 
@@ -279,3 +279,5 @@ fi
 
 
 echo "debug: ending zshrc"
+=======
+>>>>>>> 109b8592aa68a9f1b2be956fb51d3451e4051444
