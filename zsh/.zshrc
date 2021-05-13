@@ -157,6 +157,9 @@ case "$OSTYPE" in
     # On macOS/OS X environment
     export OSNAME="mac"
 
+    #add homebrew's bin to path
+    export PATH="/usr/local/sbin:$PATH"
+
     #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
     # export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
