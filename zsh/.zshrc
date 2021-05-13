@@ -253,7 +253,6 @@ if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
 fi
 # source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
-<<<<<<< HEAD
 
 
 
@@ -279,5 +278,3 @@ fi
 
 
 echo "debug: ending zshrc"
-=======
->>>>>>> 109b8592aa68a9f1b2be956fb51d3451e4051444
