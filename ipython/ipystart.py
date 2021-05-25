@@ -13,7 +13,10 @@ import matplotlib.pyplot as plt
 
 
 
-
+def dfread(fname, **kwargs):
+    """ alias for pd.read_csv, with my standard delimiter)
+    """
+    return pd.read_csv(fname, sep=' ', **kwargs)
 
 #functions for quick plotting
 
@@ -33,3 +36,11 @@ def plotdfs(dfs, x, y):
 
 #make a sandbox dataframe
 df = pd.DataFrame({'a' : [1,2,3,4,5], 'b' : [10,20,30,40,50]})
+
+
+
+print("\nlhalstro' custom ipython functions available:\n" \
+      "    - plotdfs(dfs,x,y)\n" \
+      "    - readdf(fname)\n" \
+      "    - df = pd.DataFrame({'a' : [1,2,3,4,5], 'b' : [10,20,30,40,50]})\n" \
+)
