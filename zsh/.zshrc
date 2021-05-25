@@ -276,13 +276,5 @@ if [ -d "${HOME}/lib" ]; then
     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
 fi
 
-#Allows import of overdyn without typing it twice (prepends in front of original overdyn)
-# export PYTHONPATH=":${HOME}/lib/python/overdyn${PYTHONPATH}"
-if command -v module &> /dev/null
-then
-    echo "module is present. Assuming on PFE. Loading overdyn via module. MOVE THIS TO .ZSHRC-CUSTOM"
-    module load overdyn
-fi
-
 
 echo "debug: ending zshrc"
