@@ -181,6 +181,15 @@ alias untar="tar -xvf"
 #easy compress FILE into FILE.tar.gz
 mytar () {tar -czvf ${1}.tar.gz $1}
 
+#forced latex builda
+# alias tx="pdflatex -interaction=nonstopmode"
+tx () {
+    #run it twice because TeX
+    pdflatex -interaction=nonstopmode $1
+    pdflatex -interaction=nonstopmode $1
+}
+
+
 alias ipynb="jupyter notebook"
 
 tog_gitstat () {
