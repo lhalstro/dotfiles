@@ -9,6 +9,15 @@
 
 import numpy as np
 import pandas as pd
+import os
+if 'DISPLAY' not in os.environ:
+    #Compatiblity mode for plotting on non-X11 server
+    import matplotlib
+    matplotlib.use('Agg')
+elif 'pfe' in os.environ['DISPLAY']:
+    #for some reason, pfe sets display but hangs up, so treat as no X11
+    import matplotlib
+    matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
