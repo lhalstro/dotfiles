@@ -181,12 +181,35 @@ alias untar="tar -xvf"
 #easy compress FILE into FILE.tar.gz
 mytar () {tar -czvf ${1}.tar.gz $1}
 
-#forced latex builda
-# alias tx="pdflatex -interaction=nonstopmode"
+#LaTeX AND PDFs
+#forced latex build
 tx () {
     #run it twice because TeX
     pdflatex -interaction=nonstopmode $1
     pdflatex -interaction=nonstopmode $1
+}
+#compress pdf
+compresspdf () {
+    #compress filename.pdf into compress_filename.pdf using GhostScript
+    #MAIN COMMAND: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=output.pdf input.pdf
+    if [ -z "$1" ]; then
+        echo "ERROR: Must specify file to compress"
+        echo "compresspdf file.pdf [LVL]"
+        exit 1
+    fi
+    #compression level settings (lowest to highest)
+    if   [ "$2" = "1" ]; then
+	    complvl="-dPDFSETTINGS=/prepress"
+    elif [ "$2" = "2" ]; then
+	    complvl="-dPDFSETTINGS=/print"
+    elif [ "$2" = "3" ]; then
+	    complvl="-dPDFSETTINGS=/ebook"
+    elif [ "$2" = "4" ]; then
+	    complvl="-dPDFSETTINGS=/screen"
+    else
+        complvl=""
+    fi
+    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 $complvl -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile="compress_$1" $1
 }
 
 
