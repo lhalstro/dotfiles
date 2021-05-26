@@ -17,6 +17,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="agnoster"
 # ##Much simpler and faster theme:
 # ZSH_THEME="powerlevel10k"
+## ZSH_THEME="half-life"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -265,6 +266,8 @@ if [ -d "${HOME}/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
+    #on macOS, homebrew sometimes installs over python. This command fixes pyenv:
+    alias fixpyenv="pyenv rehash"
 fi
 # Custom Python Modules
 if [ -d "${HOME}/lib" ]; then
