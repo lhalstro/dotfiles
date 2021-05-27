@@ -291,8 +291,8 @@ if [ -d "${HOME}/.pyenv" ]; then
     # pyenv config
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
-    # eval "$(pyenv init -)" #---------->MADE OBSOLETE BY HOMEBREW UPDATE 5/26/21
-    eval "$(pyenv init --path)"
+    eval "$(pyenv init --path)" #5/26/21 now need this in addition for shims
+    eval "$(pyenv init -)" 
     #on macOS, homebrew sometimes installs over python. This command fixes pyenv:
     alias fixpyenv="pyenv rehash"
 fi
