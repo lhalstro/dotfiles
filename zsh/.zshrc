@@ -1,5 +1,14 @@
+
+echo "debug: ending zshrc"
+
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
+#------------------------------------------------------
+
+
+#-------------------------------------------------------------------
+# Source custom zshrc for custom commands to run before boiler zshrc
+#-------------------------------------------------------------------
 export PREZSHRC=1
 if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
@@ -298,7 +307,8 @@ if [ -d "${HOME}/.pyenv" ]; then
     # pyenv config
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
+    eval "$(pyenv init --path)" #5/26/21 now need this in addition for shims
+    eval "$(pyenv init -)" 
     #on macOS, homebrew sometimes installs over python. This command fixes pyenv:
     alias fixpyenv="pyenv rehash"
 fi
