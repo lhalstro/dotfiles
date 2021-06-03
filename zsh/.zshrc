@@ -221,6 +221,8 @@ compresspdf () {
 
 
 alias ipynb="jupyter notebook"
+#install/update my list of default packages
+alias pipupdate="pip install --upgrade -r ~/.dotfiles/ipython/default_packages.txt"
 
 tog_gitstat () {
     #getting the status of a git repo can make oh-my-zsh very slow
