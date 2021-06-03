@@ -1,5 +1,5 @@
 
-echo "debug: ending zshrc"
+echo "debug: starting zshrc"
 
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
@@ -219,6 +219,8 @@ compresspdf () {
 
 
 alias ipynb="jupyter notebook"
+#install/update my list of default packages
+alias pipupdate="pip install --upgrade -r ~/.dotfiles/ipython/default_packages.txt"
 
 #view with imagemagick
 alias di="display"
