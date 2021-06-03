@@ -1,5 +1,14 @@
+
+echo "debug: ending zshrc"
+
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
+#------------------------------------------------------
+
+
+#-------------------------------------------------------------------
+# Source custom zshrc for custom commands to run before boiler zshrc
+#-------------------------------------------------------------------
 export PREZSHRC=1
 if [ -f "${HOME}/.zshrc-custom" ]; then
     source "${HOME}/.zshrc-custom"
