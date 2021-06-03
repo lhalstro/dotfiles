@@ -79,6 +79,7 @@ export TERM=xterm-256color
 export PATH=$HOME/bin:$PATH
 #also this local bin for local installs
 export PATH=$HOME/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 #For x11 (but not working on macOS catalina)
     #including this makes overgrid not work
