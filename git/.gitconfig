@@ -1,15 +1,14 @@
 [user]
-		name = username
-		email = email@gmail.com
+	name = username
+	email = email@gmail.com
 [core]
-		editor = vim
+	editor = vim
 [credential]
-		helper = osxkeychain
+	helper = osxkeychain
 [push]
-		default = simple
+	default = simple
 [init]
-        defaultBranch = main
-		templateDir = ~/.git-template/
+    defaultBranch = main
 [color]
     	branch = auto
     	diff = auto
