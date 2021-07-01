@@ -145,8 +145,9 @@ alias duf='du -sh *'
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 
-#size of directories in current level
-alias dirsize="du -sh */"
+#size of directories in current level, excluding links, sort with largest on bottom
+    # alias dirsize="du -sh */"
+alias dirsize="find . -mindepth 1 -maxdepth 1 -type d -exec du -sh {} + | sort  -h"
 
 #faster imagemagick
 alias disp="display"
