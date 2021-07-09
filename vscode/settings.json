@@ -72,13 +72,17 @@
         "typescriptreact",
         "yml",
         "latex",
+        "bibtex",
+        "perl",
+        "python",
+        "xml"
     ],
 
     // Enable / Disable the spell checker.
     "cSpell.enabled": true,
 
     // Display the spell checker status on the status bar.
-    "cSpell.showStatus": false,
+    "cSpell.showStatus": true,
 
     // Words to add to dictionary for a workspace.
     "cSpell.words": [],
@@ -87,11 +91,26 @@
 
     ],
     "cSpell.userWords": [
+        "aeropendulum",
+        "axisymmetric",
+        "crossflow",
+        "discretizing",
+        "flowfield",
+        "freestream",
         "halstrom",
-        "hrvip"
+        "hrvip",
+        "multigrid",
+        "navier",
+        "pentadiagonal",
+        "rans",
+        "roshko",
+        "strouhal",
+        "urans"
     ],
     "cSpell.ignoreWords": [
     ],
+    // After this amount of spelling errors, it wont check anymore
+    "cSpell.maxNumberOfProblems": 500,
 
     // REMOTE SSH
     // When connecting with RSA token, need more time to enter passcodes
@@ -119,7 +138,121 @@
     //Default view to open latex preview in ("tab" for within VS Code)
     "latex-workshop.view.pdf.viewer": "tab",
 
+    //Recipes for Compiling LaTeX
+    "latex-workshop.latex.recipes": [
 
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "latexmk (latexmkrc)",
+            "tools": [
+                "latexmk_rconly"
+            ]
+        },
+        {
+            "name": "latexmk (lualatex)",
+            "tools": [
+                "lualatexmk"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex ➞ bibtex ➞ makeglossaries ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "makeglossaries",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "Compile Rnw files",
+            "tools": [
+                "rnw2tex",
+                "latexmk"
+            ]
+        },
+        {
+            "name": "Compile Jnw files",
+            "tools": [
+                "jnw2tex",
+                "latexmk"
+            ]
+        }
+    ],
+    // latex tools are the actual latex shell commands
+    "latex-workshop.latex.tools":[
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+              "%DOCFILE%"
+            ]
+          }
+    ],
+    "latex-workshop.chktex.enabled": true,
+
+
+
+
+
+
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
 
     ///////////////////////////
 
