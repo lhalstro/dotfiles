@@ -17,8 +17,10 @@
 
     // choose which language applies to a file extension
     "files.associations": {
-        "*.pbs": "shellscript",
         ".zshrc-custom": "shellscript",  //my custom zshrc addition
+        "*.pbs": "shellscript",
+        "overlst.i": "perl",       //overlst
+        "runovermpi.pbs": "perl",  //overlst
     },
 
 
@@ -91,13 +93,13 @@
 
     ],
     "cSpell.userWords": [
+        "halstrom",
         "aeropendulum",
         "axisymmetric",
         "crossflow",
         "discretizing",
         "flowfield",
         "freestream",
-        "halstrom",
         "hrvip",
         "multigrid",
         "navier",
@@ -105,7 +107,11 @@
         "rans",
         "roshko",
         "strouhal",
-        "urans"
+        "urans",
+        "heatshield",
+        "hiad",
+        "retropropulsion",
+        "streamwise"
     ],
     "cSpell.ignoreWords": [
     ],
@@ -114,7 +120,7 @@
 
     // REMOTE SSH
     // When connecting with RSA token, need more time to enter passcodes
-    "remote.SSH.connectTimeout": 120,
+    "remote.SSH.connectTimeout": 300,
 
     //Folder Diff Extension
     "l13Diff.confirmCopy": false,
@@ -245,17 +251,16 @@
     "latex-workshop.chktex.enabled": true,
 
 
-
-
-
-
+    // PYTHON
+    "python.showStartPage": false, // dont show add when you open python file
+    "python.languageServer": "Pylance",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
+
+    // Where to open files that arent trusted (just open them, `newWindow` is so annoying)
     "security.workspace.trust.untrustedFiles": "open",
 
     ///////////////////////////
-
-
 
 }
