@@ -23,11 +23,8 @@
         "runovermpi.pbs": "perl",  //overlst
     },
 
-
     // macbook pro has really small text, zooming in helps
     "window.zoomLevel": 1,
-
-
 
     // Columns at which to show vertical rulers
     "editor.rulers": [
@@ -94,6 +91,7 @@
     ],
     "cSpell.userWords": [
         "halstrom",
+        "hrvip",
         "aeropendulum",
         "axisymmetric",
         "crossflow",
@@ -132,7 +130,8 @@
         "**/CVS",
         "**/node_modules",
         "**/*~",
-        "**/*.bk0",
+        // "**/test", //this is just for overflow dev
+        "**/*.bk0"
     ],
 
     //VS CODE DIFF VIEWER
@@ -143,6 +142,10 @@
 
     //Default view to open latex preview in ("tab" for within VS Code)
     "latex-workshop.view.pdf.viewer": "tab",
+    //Autobuild with whatever latex recipe you used last
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    //this does???
+    "latex-workshop.chktex.enabled": true,
 
     //Recipes for Compiling LaTeX
     "latex-workshop.latex.recipes": [
@@ -248,15 +251,24 @@
             ]
           }
     ],
-    "latex-workshop.chktex.enabled": true,
 
 
     // PYTHON
     "python.showStartPage": false, // dont show add when you open python file
     "python.languageServer": "Pylance",
     "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
+        "*.ipynb": "jupyter-notebook"
     },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    // // Set Python Path
+    //     // only for remote ssh onto pfe:
+    // "python.pythonPath": "/nasa/pkgsrc/sles12/2018Q3/bin/python3.7",
+    // "python.defaultInterpreterPath": "/nasa/pkgsrc/sles12/2018Q3/bin/python3.7",
+
+
 
     // Where to open files that arent trusted (just open them, `newWindow` is so annoying)
     "security.workspace.trust.untrustedFiles": "open",
