@@ -23,10 +23,16 @@ export PREZSHRC=0
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+# # ZSH_THEME="half-life"
 # ##Much simpler and faster theme:
-# ZSH_THEME="powerlevel10k"
-## ZSH_THEME="half-life"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -153,6 +159,10 @@ alias dirsize="find . -mindepth 1 -maxdepth 1 -type d -exec du -sh {} + | sort  
 alias disp="display"
 alias di="display"
 
+#easy decompress
+alias untar="tar -xvf"
+#easy compress FILE into FILE.tar.gz
+mytar () {tar -czvf ${1}.tar.gz $1}
 
 sedf () {
     #use sed to file/replace strings in a file
@@ -182,10 +192,6 @@ alias sourcez='source "${HOME}/.zshrc"'
 alias viz='vi "${HOME}/.zshrc"'
 alias vizc='vi "${HOME}/.zshrc-custom"'
 
-#easy decompress
-alias untar="tar -xvf"
-#easy compress FILE into FILE.tar.gz
-mytar () {tar -czvf ${1}.tar.gz $1}
 
 #LaTeX AND PDFs
 #forced latex build
@@ -311,7 +317,7 @@ if [ -d "${HOME}/.pyenv" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init --path)" #5/26/21 now need this in addition for shims
-    eval "$(pyenv init -)" 
+    eval "$(pyenv init -)"
     #on macOS, homebrew sometimes installs over python. This command fixes pyenv:
     alias fixpyenv="pyenv rehash"
 fi
@@ -320,5 +326,9 @@ if [ -d "${HOME}/lib" ]; then
     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
 fi
 
+
+# POWERLEVEL10K THEME: setings from customizer wizard
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 echo "debug: ending zshrc"
