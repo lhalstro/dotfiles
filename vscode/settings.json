@@ -23,6 +23,7 @@
         "runovermpi.pbs": "perl",  //overlst
     },
 
+
     // macbook pro has really small text, zooming in helps
     "window.zoomLevel": 1,
 
@@ -90,26 +91,28 @@
 
     ],
     "cSpell.userWords": [
-        "halstrom",
-        "hrvip",
         "aeropendulum",
         "axisymmetric",
         "crossflow",
         "discretizing",
         "flowfield",
         "freestream",
+        "halstrom",
+        "heatshield",
+        "hiad",
         "hrvip",
+        "infeasibly",
         "multigrid",
         "navier",
         "pentadiagonal",
         "rans",
-        "roshko",
-        "strouhal",
-        "urans",
-        "heatshield",
-        "hiad",
         "retropropulsion",
-        "streamwise"
+        "roshko",
+        "streamwise",
+        "strouhal",
+        "uncommanded",
+        "uncrewed",
+        "urans"
     ],
     "cSpell.ignoreWords": [
     ],
@@ -264,7 +267,7 @@
         "jupyter-notebook": "left"
     },
     // // Set Python Path
-    //     // only for remote ssh onto pfe:
+    //     // below is only for remote ssh onto pfe:
     // "python.pythonPath": "/nasa/pkgsrc/sles12/2018Q3/bin/python3.7",
     // "python.defaultInterpreterPath": "/nasa/pkgsrc/sles12/2018Q3/bin/python3.7",
 

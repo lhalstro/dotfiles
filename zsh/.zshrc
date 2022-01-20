@@ -270,6 +270,9 @@ case "$OSTYPE" in
     #absolute path to file, including filename (mac doesnt need -f)
     alias rl="readlink"
 
+    #add ssh key to keychain
+    alias fixssh="ssh-add -apple-use-keychain ~/.ssh/id_rsa"
+
 
     #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
