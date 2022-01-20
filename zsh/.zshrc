@@ -139,8 +139,12 @@ alias lns="ln -s"
 
 #pwd to absolute path ("physical")
 alias pwdp="pwd -P"
-#absolute path to file, including filename
+#absolute path to file, including filename (doesnt work on mac)
 alias rl="readlink -f"
+#absolute path to file, and size
+rll () {
+    ls -lahort `rl $1`
+}
 
 #smart grep (list, associated lines)
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -270,6 +274,10 @@ case "$OSTYPE" in
 
     #add homebrew's bin to path
     export PATH="/usr/local/sbin:$PATH"
+
+    #absolute path to file, including filename (mac doesnt need -f)
+    alias rl="readlink"
+
 
     #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
