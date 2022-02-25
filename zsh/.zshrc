@@ -359,7 +359,8 @@ case "$OSTYPE" in
     # alias rl="readlink"
 
     #add ssh key to keychain
-    alias fixssh="ssh-add --apple-use-keychain ~/.ssh/id_rsa"
+    # # alias fixssh="ssh-add -apple-use-keychain ~/.ssh/id_rsa"
+    alias fixssh="/usr/bin/ssh-add -k ~/.ssh/id_rsa"
 
 
     #equivalent to solarized dark on macOS
