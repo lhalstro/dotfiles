@@ -1,7 +1,10 @@
+zmodload zsh/zprof
+
 echo "debug: starting zshrc"
 
-
-
+# #default for these is 10k, but shell is slow
+# HISTSIZE=1000
+# SAVEHIST=1000
 
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
@@ -26,9 +29,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 ZSH_THEME="agnoster"
-# ##Much simpler and faster theme:
-# ZSH_THEME="powerlevel10k"
 ## ZSH_THEME="half-life"
+# ##Much simpler and faster theme:
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -63,7 +66,7 @@ plugins=(
     battery    #show battery status information???
     command-not-found #suggests commands when you enter one that doesnt exsit
     extract    #function to extract many kinds of archive files `extract file ?`
-    sublime    #sublime text shortcuts
+    # sublime    #sublime text shortcuts
     tmux       #tmux aliases, compatibility checking
 )
 
@@ -188,6 +191,8 @@ alias vizc='vi "${HOME}/.zshrc-custom"'
 alias untar="tar -xvf"
 #easy compress FILE into FILE.tar.gz
 mytar () {tar -czvf ${1}.tar.gz $1}
+#list the contents of a tarfile
+alias viewtar="tar -tvf"
 
 #LaTeX AND PDFs
 #forced latex build
@@ -241,6 +246,9 @@ tog_gitstat () {
     # git config --global oh-my-zsh.hide-status  $gstat
     # git config --global oh-my-zsh.hide-dirty  $gstat
 }
+
+
+alias topme="top -u lhalstro"
 
 #------------------------------------------------------
 # OS-Specific Settings
