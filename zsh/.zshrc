@@ -164,6 +164,9 @@ sedf () {
     #$1=find, $2=replace, $3=file
     sed -i "s/$1/$2/g" $3
 }
+#same as above, but with a pipe so you can replace "/"
+sedfpipe () { sed -i "s|$1|$2|g" $3 }
+
 #convert a symbolic link into a hard copy
 delink () {
     if [ -L $1 ] && [ -e $1 ]; then
