@@ -204,15 +204,12 @@ alias sourcez='source "${HOME}/.zshrc"'
 alias viz='vi "${HOME}/.zshrc"'
 alias vizc='vi "${HOME}/.zshrc-custom"'
 
-<<<<<<< HEAD
-=======
 #easy decompress
 alias untar="tar -xvf"
 #easy compress FILE into FILE.tar.gz
 mytar () {tar -czvf ${1}.tar.gz $1}
 #list the contents of a tarfile
 alias viewtar="tar -tvf"
->>>>>>> pfe
 
 #LaTeX AND PDFs
 #forced latex build
