@@ -128,7 +128,7 @@ alias czc='code "${HOME}/.zshrc-custom"'
 # Aliases
 #------------------------------------------------------
 alias l='ls -lahort'
-alias lsl='ls -l' #list, showing permissions
+alias lsl='ls -la' #list, showing permissions
 alias lss='ls -lShr' #list by size, biggest lowest
 alias sl="ls"
 # alias lss="ls"
