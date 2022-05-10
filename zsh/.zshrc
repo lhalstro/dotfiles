@@ -37,10 +37,10 @@ export PREZSHRC=0
 export ZSH=$HOME/.oh-my-zsh
 
 ## Set name of the theme to load.
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 # # ZSH_THEME="half-life"
-# ##Much simpler and faster theme:
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+##Much simpler and faster theme:
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
