@@ -1,5 +1,10 @@
+zmodload zsh/zprof
 
 echo "debug: starting zshrc"
+
+# #default for these is 10k, but shell is slow
+# HISTSIZE=1000
+# SAVEHIST=1000
 
 #------------------------------------------------------
 #-----lhalstro-zshrc-----------------------------------
@@ -58,7 +63,7 @@ CASE_SENSITIVE="true"
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -67,7 +72,7 @@ plugins=(
     battery    #show battery status information???
     command-not-found #suggests commands when you enter one that doesnt exsit
     extract    #function to extract many kinds of archive files `extract file ?`
-    sublime    #sublime text shortcuts
+    # sublime    #sublime text shortcuts
     tmux       #tmux aliases, compatibility checking
 )
 
@@ -129,7 +134,7 @@ alias czc='code "${HOME}/.zshrc-custom"'
 # Aliases
 #------------------------------------------------------
 alias l='ls -lahort'
-alias lsl='ls -l' #list, showing permissions
+alias lsl='ls -la' #list, showing permissions
 alias lss='ls -lShr' #list by size, biggest lowest
 alias sl="ls"
 # alias lss="ls"
@@ -173,6 +178,9 @@ sedf () {
     #$1=find, $2=replace, $3=file
     sed -i "s/$1/$2/g" $3
 }
+#same as above, but with a pipe so you can replace "/"
+sedfpipe () { sed -i "s|$1|$2|g" $3 }
+
 #convert a symbolic link into a hard copy
 delink () {
     if [ -L $1 ] && [ -e $1 ]; then
@@ -196,6 +204,15 @@ alias sourcez='source "${HOME}/.zshrc"'
 alias viz='vi "${HOME}/.zshrc"'
 alias vizc='vi "${HOME}/.zshrc-custom"'
 
+<<<<<<< HEAD
+=======
+#easy decompress
+alias untar="tar -xvf"
+#easy compress FILE into FILE.tar.gz
+mytar () {tar -czvf ${1}.tar.gz $1}
+#list the contents of a tarfile
+alias viewtar="tar -tvf"
+>>>>>>> pfe
 
 #LaTeX AND PDFs
 #forced latex build
@@ -253,6 +270,9 @@ tog_gitstat () {
     # git config --global oh-my-zsh.hide-status  $gstat
     # git config --global oh-my-zsh.hide-dirty  $gstat
 }
+
+
+alias topme="top -u lhalstro"
 
 #------------------------------------------------------
 # OS-Specific Settings
