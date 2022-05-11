@@ -3,6 +3,7 @@
     #Be careful: this syntax competes with ohmyzsh aliases for tmux (e.g. 'ts', 'tl', etc)
 alias tsh="t s"
 alias td="t d"
+alias te="t e"
 alias teap="t e --append"
 alias tia='t i --at'
 alias toa='t o --at'
