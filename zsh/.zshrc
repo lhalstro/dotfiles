@@ -312,8 +312,13 @@ tog_gitstat () {
     # git config --global oh-my-zsh.hide-dirty  $gstat
 }
 
-
+#display MY processes
 alias topme="top -u lhalstro"
+
+isrunning () {
+    # Return 1 if process is running, 0 if not
+    ps aux | grep -v grep | grep -c -i $1
+}
 
 #------------------------------------------------------
 # OS-Specific Settings
