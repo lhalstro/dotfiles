@@ -11,11 +11,21 @@ alias ti="t i"
 alias to="t o"
 alias tr='t r'
 alias tra='t r --at'
+alias tt='t today all'
+
 #get entries for current pay period (leverages `payperiod.py` script in user bin)
 tdpp() {
-    #display timesheet entries for current period (default: all timesheets)
+    #display timesheet entries for current payperiod (default: all timesheets)
     if [[ "$#" == "1" ]]; then sheet=$1; else sheet="all" fi
     tmp=($(payperiod -c)) ; t d --start "${tmp[2]}" --end "${tmp[3]}" $sheet ; echo "\n$tmp[4]/10 workdays ($(($tmp[4]*8)) hrs)"
+}
+tm() {
+    #Move entry to another timesheet: `tm ID new_sheet`
+    if [[ "$#" != "2" ]]; then
+        echo "USAGE: `tm ID new_sheet`"
+        exit 1
+    fi
+    t e -i $ID -m new_sheet
 }
 
 trename() {
@@ -31,7 +41,7 @@ trename() {
 # t() {
 #     #timetrap alias wrapper to handle custom aliases like 'move'
 #     #DOES NOT WORK YET: need to search $@ for the first input 'm'
-#     if [[ $@ == "m" ]]; then 
+#     if [[ $@ == "m" ]]; then
 # 	command tm "$@"
 #     else
 # 	command t "$@"
