@@ -150,9 +150,14 @@ alias duf='du -sh *'
 alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 
-#size of directories in current level, excluding links, sort with largest on bottom
-    # alias dirsize="du -sh */"
-alias dirsize="find . -mindepth 1 -maxdepth 1 -type d -exec du -sh {} + | sort  -h"
+dirsize () {
+    #size of directories in current level, excluding links, sort with largest on bottom
+    find . -mindepth 1 -maxdepth 1 -type d -exec du -sh {} + | sort  -h
+}
+dirfiles () {
+    #number of files in each of the directories in current level (including files in all subdirectories), sort with largest on bottom
+    find . -maxdepth 1 -type d | while read -r dir; do nn=$(find "$dir" -type f | wc -l); printf "%5d\t%s\n" "$nn" "$dir";  done | sort -h
+}
 
 #faster imagemagick
 alias disp="display"
