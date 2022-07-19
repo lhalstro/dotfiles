@@ -8,7 +8,7 @@
 [push]
 	default = simple
 [init]
-        templateDir = ~/.git-template/
+    defaultBranch = main
 [color]
     	branch = auto
     	diff = auto

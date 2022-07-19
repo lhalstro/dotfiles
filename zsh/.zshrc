@@ -1,6 +1,13 @@
-zmodload zsh/zprof
-
 echo "debug: starting zshrc"
+# zmodload zsh/zprof #DEBUG: get diagnostics to speed up ohmyzsh (call profiler at bottom of .zshrc)
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+    # Initialization code that may require console input (password prompts, [y/n]
+    # confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 
 # #default for these is 10k, but shell is slow
 # HISTSIZE=1000
@@ -27,9 +34,9 @@ export PREZSHRC=0
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
+## Set name of the theme to load.
 ZSH_THEME="agnoster"
-## ZSH_THEME="half-life"
+# # ZSH_THEME="half-life"
 # ##Much simpler and faster theme:
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -128,7 +135,8 @@ alias czc='code "${HOME}/.zshrc-custom"'
 # Aliases
 #------------------------------------------------------
 alias l='ls -lahort'
-alias lsl='ls -la' #list, showing permissions
+alias ll='ls -lah'  #list, showing permissions
+alias lsl='ls -lah' #list, showing permissions (duplicate alias)
 alias lss='ls -lShr' #list by size, biggest lowest
 alias sl="ls"
 # alias lss="ls"
@@ -139,8 +147,12 @@ alias lns="ln -s"
 
 #pwd to absolute path ("physical")
 alias pwdp="pwd -P"
-#absolute path to file, including filename
+#absolute path to file, including filename (doesnt work on mac, overwrite below)
 alias rl="readlink -f"
+#absolute path to file, and size
+rll () {
+    ls -lahort `rl $1`
+}
 
 #smart grep (list, associated lines)
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
@@ -163,6 +175,14 @@ dirfiles () {
 alias disp="display"
 alias di="display"
 
+#easy decompress
+    #function so it can be used with the batch function
+untar () {tar -xvf $1}
+    # alias untar="tar -xvf"
+#easy compress FILE into FILE.tar.gz
+mytar () {tar -czvf ${1}.tar.gz $1}
+#list the contents of a tarfile
+alias viewtar="tar -tvf"
 
 sedf () {
     #use sed to file/replace strings in a file
@@ -182,11 +202,13 @@ delink () {
 #b () {find . -name "$2" -exec $1 {} \; }
 b () {
     #given command, then list of inputs, execute in a loop
+    #Currently, aliases arent expanded in zsh functions, only other functions
+        #(`setopt` didnt work)
     cmd=$1
     inps=(${@:2})
     for inp in $inps;
     do
-	$cmd $inp
+	    $cmd $inp
     done
 }
 
@@ -195,12 +217,6 @@ alias sourcez='source "${HOME}/.zshrc"'
 alias viz='vi "${HOME}/.zshrc"'
 alias vizc='vi "${HOME}/.zshrc-custom"'
 
-#easy decompress
-alias untar="tar -xvf"
-#easy compress FILE into FILE.tar.gz
-mytar () {tar -czvf ${1}.tar.gz $1}
-#list the contents of a tarfile
-alias viewtar="tar -tvf"
 
 #LaTeX AND PDFs
 #forced latex build
@@ -232,6 +248,14 @@ compresspdf () {
     fi
     gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 $complvl -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile="compress_$1" $1
 }
+
+pdf2png () {
+    #convert a pdf to a png with Imagemagick
+    #USAGE: `pdf2png filename.pdf`
+    filename=$(echo "$1" | sed "s/.pdf//g")
+    convert -density 300 ${filename}.pdf -resize 25% -define png:color-type=6 ${filename}.png
+}
+#define png:color helps with greyscale error message
 
 
 alias ipynb="jupyter notebook"
@@ -274,6 +298,13 @@ case "$OSTYPE" in
 
     #add homebrew's bin to path
     export PATH="/usr/local/sbin:$PATH"
+
+    #absolute path to file, including filename (mac doesnt need -f)
+    alias rl="readlink"
+
+    #add ssh key to keychain
+    alias fixssh="ssh-add -apple-use-keychain ~/.ssh/id_rsa"
+
 
     #equivalent to solarized dark on macOS
     #see: https://github.com/seebi/dircolors-solarized/issues/10
@@ -328,6 +359,7 @@ if [ -d "${HOME}/.pyenv" ]; then
     # pyenv config
     export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
+    # export PYTHONHOME="$PYENV_ROOT/versions/$(python -V | cut -d' ' -f 2)" #this only needs to be set for paraview python scripting
     eval "$(pyenv init --path)" #5/26/21 now need this in addition for shims
     eval "$(pyenv init -)"
     #on macOS, homebrew sometimes installs over python. This command fixes pyenv:
@@ -338,5 +370,14 @@ if [ -d "${HOME}/lib" ]; then
     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
 fi
 
+
+# POWERLEVEL10K THEME: setings from customizer wizard
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
+
+# zprof #DEBUG: call profiler for speedup diagnostics (import profiler at top of zshrc)
 
 echo "debug: ending zshrc"
