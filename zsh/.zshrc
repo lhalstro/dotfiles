@@ -139,12 +139,36 @@ alias ll='ls -lah'  #list, showing permissions
 alias lsl='ls -lah' #list, showing permissions (duplicate alias)
 alias lss='ls -lShr' #list by size, biggest lowest
 alias sl="ls"
-# alias lss="ls"
+
+vilastfile () {
+    #read last modified file
+    #USAGE: vilastfile [globpatternbase]* [nlast]
+    #(Note: function that references another function must go before it)
+    vi `lastfile "$@"`
+}
+lastfile () {
+    #Get last modified file
+    # if [ -z "$1" ]; then pattern="" ; else pattern="$1" ; fi #glob pattern
+    if [ ! -z "$2" ]; then
+        echo "NOT IMPLEMENTED: option to get next-to-last file"
+        exit 1
+    fi
+    if [ -z $1 ]; then
+        ls -Art ${pattern}* | tail -n 1
+    else
+        ls -Art $1 | tail -n 1 #glob pattern
+    fi
+    # ls -Art $pattern | tail -n 1
+
+}
+
+
+#error catching
 alias cd..="cd .."
 alias cd-="cd -"
 
+#symbolic link
 alias lns="ln -s"
-
 #pwd to absolute path ("physical")
 alias pwdp="pwd -P"
 #absolute path to file, including filename (doesnt work on mac, overwrite below)
