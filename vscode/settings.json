@@ -83,17 +83,16 @@
 
     // Display the spell checker status on the status bar.
     "cSpell.showStatus": true,
-
-    // Words to add to dictionary for a workspace.
-    "cSpell.words": [],
     "cSpell.enableFiletypes": [
-        "python",
-
+        "python"
     ],
     "cSpell.userWords": [
         "aeropendulum",
+        "aerosciences",
         "axisymmetric",
+        "backshell",
         "crossflow",
+        "discretization",
         "discretizing",
         "flowfield",
         "freestream",
@@ -110,6 +109,7 @@
         "roshko",
         "streamwise",
         "strouhal",
+        "supercomputing",
         "uncommanded",
         "uncrewed",
         "urans"
@@ -120,8 +120,12 @@
     "cSpell.maxNumberOfProblems": 500,
 
     // REMOTE SSH
+    // Extension was trying to access /etc/ssh/ssh_config and did not have permission on macOS Monterey, so have to specify here
+    "remote.SSH.configFile": "/Users/lhalstro/.ssh/config",
     // When connecting with RSA token, need more time to enter passcodes
     "remote.SSH.connectTimeout": 300,
+    // suposed to help inifinite ssh attemps when lock file is locked, but it doesnt:
+    "remote.SSH.useFlock": false,
 
     //Folder Diff Extension
     "l13Diff.confirmCopy": false,
@@ -186,6 +190,13 @@
                 "pdflatex",
                 "bibtex",
                 "makeglossaries",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex x 2",
+            "tools": [
                 "pdflatex",
                 "pdflatex"
             ]
@@ -262,19 +273,29 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
+    // Extra paths to look for python imports
+    "python.analysis.extraPaths": [
+        "/nobackupp19/lhalstro/projects/orion/ar174/renders"
+    ],
+    // only for nasmac (avoid error message about shims):
+    // "python.pythonPath": "/Users/lhalstro/.pyenv/shims/python",
+    "python.defaultInterpreterPath": "~/.pyenv/shims/python",
+    "python.terminal.activateEnvironment": false,
+
+    //Jupyter Notebooks
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
-    // // Set Python Path
-    //     // below is only for remote ssh onto pfe:
-    // "python.pythonPath": "/nasa/pkgsrc/sles12/2018Q3/bin/python3.7",
-    // "python.defaultInterpreterPath": "/nasa/pkgsrc/sles12/2018Q3/bin/python3.7",
 
 
-
+    // GENERAL SETTINGS
     // Where to open files that arent trusted (just open them, `newWindow` is so annoying)
     "security.workspace.trust.untrustedFiles": "open",
+    // Dont have MS recommend more extensions to install:
+    "extensions.ignoreRecommendations": true,
+
+    // AUTOMATICALLY-APPENDED SETTINGS:
 
     ///////////////////////////
 
