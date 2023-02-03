@@ -1,5 +1,5 @@
-echo "debug: starting zshrc"
-echo "current bug with git status, tog_gitstat to workaround"
+# echo "debug: starting zshrc"
+# echo "current bug with git status, tog_gitstat to workaround"
 
 # zmodload zsh/zprof #DEBUG: get diagnostics to speed up ohmyzsh (call profiler at bottom of .zshrc)
 
@@ -428,4 +428,4 @@ fi
 
 # zprof #DEBUG: call profiler for speedup diagnostics (import profiler at top of zshrc)
 
-echo "debug: ending zshrc"
+# echo "debug: ending zshrc"
