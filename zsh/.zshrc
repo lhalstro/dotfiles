@@ -1,4 +1,6 @@
 echo "debug: starting zshrc"
+echo "current bug with git status, tog_gitstat to workaround"
+
 # zmodload zsh/zprof #DEBUG: get diagnostics to speed up ohmyzsh (call profiler at bottom of .zshrc)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -137,7 +139,7 @@ alias czc='code "${HOME}/.zshrc-custom"'
 alias l='ls -lahort'
 alias ll='ls -lah'  #list, showing permissions
 alias lsl='ls -lah' #list, showing permissions (duplicate alias)
-alias lss='ls -lShr' #list by size, biggest lowest
+alias lss='ls -lShra' #list by size, biggest lowest
 alias sl="ls"
 
 vilastfile () {
@@ -247,6 +249,13 @@ alias vizc='vi "${HOME}/.zshrc-custom"'
 tx () {
     #run it twice because TeX
     pdflatex -interaction=nonstopmode $1
+    pdflatex -interaction=nonstopmode $1
+}
+txall () {
+    #compile latex with bibliography and glossary
+    pdflatex -interaction=nonstopmode $1
+    bibtex ${1%.tex}.aux
+    makeglossaries ${1%.tex}
     pdflatex -interaction=nonstopmode $1
 }
 #compress pdf
