@@ -37,10 +37,10 @@ export PREZSHRC=0
 export ZSH=$HOME/.oh-my-zsh
 
 ## Set name of the theme to load.
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 # # ZSH_THEME="half-life"
-# ##Much simpler and faster theme:
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+##Much simpler and faster theme:
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -66,7 +66,7 @@ CASE_SENSITIVE="true"
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-DISABLE_UNTRACKED_FILES_DIRTY="true"
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -290,6 +290,16 @@ pdf2png () {
 }
 #define png:color helps with greyscale error message
 
+md2pdf () {
+    #USAGE: `md2pdf in.md out.pdf`
+    #github-flavored markdown, 1in margins
+    pandoc -f gfm -V geometry:margin=1in -o $2 $1
+}
+md2docx () {
+    #USAGE: `md2pdf in.md out.docx`
+    #github-flavored markdown, 1in margins
+    pandoc -o $2 $1
+}
 
 alias ipynb="jupyter notebook"
 #install/update my list of default packages
@@ -316,8 +326,13 @@ tog_gitstat () {
     # git config --global oh-my-zsh.hide-dirty  $gstat
 }
 
-
+#display MY processes
 alias topme="top -u lhalstro"
+
+isrunning () {
+    # Return 1 if process is running, 0 if not
+    ps aux | grep -v grep | grep -c -i $1
+}
 
 #------------------------------------------------------
 # OS-Specific Settings
@@ -336,7 +351,7 @@ case "$OSTYPE" in
     alias rl="readlink"
 
     #add ssh key to keychain
-    alias fixssh="ssh-add -apple-use-keychain ~/.ssh/id_rsa"
+    alias fixssh="ssh-add --apple-use-keychain ~/.ssh/id_rsa"
 
 
     #equivalent to solarized dark on macOS
