@@ -290,6 +290,16 @@ pdf2png () {
 }
 #define png:color helps with greyscale error message
 
+md2pdf () {
+    #USAGE: `md2pdf in.md out.pdf`
+    #github-flavored markdown, 1in margins
+    pandoc -f gfm -V geometry:margin=1in -o $2 $1
+}
+md2docx () {
+    #USAGE: `md2pdf in.md out.docx`
+    #github-flavored markdown, 1in margins
+    pandoc -o $2 $1
+}
 
 alias ipynb="jupyter notebook"
 #install/update my list of default packages
@@ -337,7 +347,7 @@ case "$OSTYPE" in
     alias rl="readlink"
 
     #add ssh key to keychain
-    alias fixssh="ssh-add -apple-use-keychain ~/.ssh/id_rsa"
+    alias fixssh="ssh-add --apple-use-keychain ~/.ssh/id_rsa"
 
 
     #equivalent to solarized dark on macOS
@@ -406,4 +416,4 @@ fi
 
 # zprof #DEBUG: call profiler for speedup diagnostics (import profiler at top of zshrc)
 
-echo "debug: ending zshrc"
+# echo "debug: ending zshrc"
