@@ -25,7 +25,7 @@ tm() {
         echo "USAGE: `tm ID new_sheet`"
         exit 1
     fi
-    t e -i $ID -m new_sheet
+    t edit --id $1 --move $2
 }
 
 trename() {
