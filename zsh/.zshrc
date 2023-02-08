@@ -126,12 +126,24 @@ export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 # VS Code aliases (I like these better than the ohmyzsh plugin)
+# alias c="code"
+c () {
+    #Open file in VS Code via ABSOLUTE path (due to git tracking bug for linked files)
+    if [ "$#" -gt 1 ]; then
+        #try to handle option args by only absolute-ing the last arg (doesnt work for multiple files yet)
+        args="${@:1:-1} `readlink -f ${@: -1}`"
+    else
+        args=`readlink -f $1`
+    fi
+    code $args
+}
 alias c.="code ."
 alias cn="code -n"
-alias c="code"
 alias cdiff="code --diff"
 alias cz='code "${HOME}/.zshrc"'
 alias czc='code "${HOME}/.zshrc-custom"'
+
+
 
 #------------------------------------------------------
 # Aliases
@@ -347,8 +359,8 @@ case "$OSTYPE" in
     #add homebrew's bin to path
     export PATH="/usr/local/sbin:$PATH"
 
-    #absolute path to file, including filename (mac doesnt need -f)
-    alias rl="readlink"
+    # #absolute path to file, including filename (mac doesnt need -f) #2023-02-08: it does now
+    # alias rl="readlink"
 
     #add ssh key to keychain
     alias fixssh="ssh-add --apple-use-keychain ~/.ssh/id_rsa"
