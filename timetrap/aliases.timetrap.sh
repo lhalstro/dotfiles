@@ -27,6 +27,7 @@ tm() {
     fi
     t edit --id $1 --move $2
 }
+alias tmv="tm"
 
 trename() {
     #Rename timetrap timesheet $1 to $2
