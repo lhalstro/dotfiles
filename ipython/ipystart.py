@@ -2,8 +2,7 @@
 #     provides standard imports and sandbox items
 # INSTALL
 #     stow in `~/.ipython/profile_default/startup/`, e.g.:
-#     cd ~/.ipython/profile_default/startup
-#     ln -s ~/.dotfiles/ipython/ipystart.py
+#     ln -s ~/.dotfiles/ipython/ipystart.py ~/.ipython/profile_default/startup/ipystart.py
 
 
 
