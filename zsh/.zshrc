@@ -137,9 +137,9 @@ c () {
     fi
     code $args
 }
-alias c.="code ."
-alias cn="code -n"
-alias cdiff="code --diff"
+alias c.="c ."
+alias cn="c -n"
+alias cdiff="c --diff"
 alias cz='c "${HOME}/.zshrc"'
 alias czc='c "${HOME}/.zshrc-custom"'
 
