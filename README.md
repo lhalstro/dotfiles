@@ -13,6 +13,7 @@ cd ~/.dotfiles
 stow tmux
 stow vim
 stow zsh
+stow ipython --target=${HOME}/.ipython/profile_default/startup
 ```
 
 ### Install Dependencies
