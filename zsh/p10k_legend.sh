@@ -1,5 +1,7 @@
 #!/bin/bash
-#Legend for git status symbols in powerlevel10k prompt
+
+# DESCRIPTION: Legend for git status symbols in powerlevel10k prompt
+# SETUP: (add to user bin) `ln -s ~/.dotfiles/zsh/p10k_legend.sh ~/bin/p10k_legend`
 
 echo "POWERLEVEL 10K COMMAND PROMPT LEGEND"
 echo ""
