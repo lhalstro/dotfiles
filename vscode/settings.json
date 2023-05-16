@@ -21,17 +21,17 @@
         "*.pbs": "shellscript",
         "overlst.i": "perl",       //overlst
         "runovermpi.pbs": "perl",  //overlst
+        "*.json": "jsonc", // Read all JSON files as JSONC (commented) files (helps with CAPE)
     },
-
-
-    // macbook pro has really small text, zooming in helps
-    "window.zoomLevel": 1,
 
     // Columns at which to show vertical rulers
     "editor.rulers": [
         // 73,
         80,
     ],
+
+    // MAC ONLY: macbook pro has really small text, zooming in helps
+    "window.zoomLevel": 1,
 
     //-------------------------------------------------------------------------
     // THEME SETTINGS
@@ -89,11 +89,14 @@
     "cSpell.userWords": [
         "aeropendulum",
         "aerosciences",
+        "aerothermal",
+        "AVCOAT",
         "axisymmetric",
         "backshell",
         "crossflow",
         "discretization",
         "discretizing",
+        "downsample",
         "flowfield",
         "freestream",
         "halstrom",
@@ -101,6 +104,8 @@
         "hiad",
         "hrvip",
         "infeasibly",
+        "Kulite",
+        "Kulites",
         "multigrid",
         "navier",
         "pentadiagonal",
@@ -261,32 +266,39 @@
             "name": "makeglossaries",
             "command": "makeglossaries",
             "args": [
-              "%DOCFILE%"
+                "%DOCFILE%"
             ]
-          }
+        }
     ],
 
 
-    // PYTHON
+    // PYTHON SETTINGS
     "python.showStartPage": false, // dont show add when you open python file
     "python.languageServer": "Pylance",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
-    // Extra paths to look for python imports
-    "python.analysis.extraPaths": [
-        "/nobackupp19/lhalstro/projects/orion/ar174/renders"
-    ],
-    // only for nasmac (avoid error message about shims):
-    // "python.pythonPath": "/Users/lhalstro/.pyenv/shims/python",
-    "python.defaultInterpreterPath": "~/.pyenv/shims/python",
+    //open a normal terminal by default, not a python terminal
     "python.terminal.activateEnvironment": false,
+
+    //formats line after typing, rather than on save
+    "[python]": {
+        "editor.formatOnType": true
+    },
 
     //Jupyter Notebooks
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
     },
+
+    // ONLY FOR PYENV INSTALLS (MAC) (avoid error message about shims):
+    "python.defaultInterpreterPath": "~/.pyenv/shims/python",
+    // GIT SETTINGS
+    // Ignores the legacy git warning (not sure what that is)
+    "git.ignoreLegacyWarning": true,
+    // Code needs to open git repo to show changes, this stops it from asking to do so every time
+    "git.openRepositoryInParentFolders": "always",
 
 
     // GENERAL SETTINGS
@@ -295,7 +307,9 @@
     // Dont have MS recommend more extensions to install:
     "extensions.ignoreRecommendations": true,
 
-    // AUTOMATICALLY-APPENDED SETTINGS:
+    // AUTOMATICALLY-APPENDED SETTINGS (do not remove if blank below):
+    //cannot find this in settings, not sure what this does
+    "jupyter.jupyterServerType": "local",
 
     ///////////////////////////
 
