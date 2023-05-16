@@ -140,8 +140,8 @@ c () {
 alias c.="code ."
 alias cn="code -n"
 alias cdiff="code --diff"
-alias cz='code "${HOME}/.zshrc"'
-alias czc='code "${HOME}/.zshrc-custom"'
+alias cz='c "${HOME}/.zshrc"'
+alias czc='c "${HOME}/.zshrc-custom"'
 
 
 
