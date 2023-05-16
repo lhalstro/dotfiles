@@ -4,11 +4,20 @@
 [core]
 	editor = vim
 [credential]
+	#only for macOS
 	helper = osxkeychain
+[init]
+	defaultBranch = main
 [push]
 	default = simple
-[init]
-    defaultBranch = main
+[pull]
+	ff = only
+	#FAST-FORWARD AVOIDS AUTOMATIC MERGE CONFLICTS
+		# consider `git up` alias or `git fetch; git merge origin/branch` as more robust alternatives
+		# Also consider rebasing
+		# https://stackoverflow.com/questions/15316601/in-what-cases-could-git-pull-be-harmful
+[alias]
+	up = "!git remote update -p; git merge --ff-only @{u}"
 [color]
     	branch = auto
     	diff = auto

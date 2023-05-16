@@ -14,6 +14,10 @@ stow tmux
 stow vim
 stow zsh
 stow ipython --target=${HOME}/.ipython/profile_default/startup
+stow bash_profile
+stow beets
+#MANUALLY COPY INSTEAD OF STOW:
+# git (gitconfig has user-specific username)
 ```
 
 ### Install Dependencies
