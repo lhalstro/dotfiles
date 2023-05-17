@@ -13,7 +13,7 @@ cd ~/.dotfiles
 stow tmux
 stow vim
 stow zsh
-stow vscode
+stow vscode --target "`readlink vscode/localstorage`"
 # snippets only, vscode/settings.json, vscode/keybindings.json (custom settings for different operating systems and profiles)
 stow ipython --target=${HOME}/.ipython/profile_default/startup
 stow bash_profile
