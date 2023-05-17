@@ -294,6 +294,7 @@
 
     // ONLY FOR PYENV INSTALLS (MAC) (avoid error message about shims):
     "python.defaultInterpreterPath": "~/.pyenv/shims/python",
+
     // GIT SETTINGS
     // Ignores the legacy git warning (not sure what that is)
     "git.ignoreLegacyWarning": true,
@@ -306,6 +307,10 @@
     "security.workspace.trust.untrustedFiles": "open",
     // Dont have MS recommend more extensions to install:
     "extensions.ignoreRecommendations": true,
+    //Gets rid of the search bar that takes up the entire top of the screen
+    "window.commandCenter": false,
+    // gets rid of right sidebar for layout control that takes up entire right of screen
+    "workbench.layoutControl.enabled": false,
 
     // AUTOMATICALLY-APPENDED SETTINGS (do not remove if blank below):
     //cannot find this in settings, not sure what this does
