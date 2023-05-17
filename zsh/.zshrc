@@ -359,11 +359,8 @@ case "$OSTYPE" in
     #add homebrew's bin to path
     export PATH="/usr/local/sbin:$PATH"
 
-    # #absolute path to file, including filename (mac doesnt need -f) #2023-02-08: it does now
-    # alias rl="readlink"
-
     #add ssh key to keychain
-    alias fixssh="ssh-add --apple-use-keychain ~/.ssh/id_rsa"
+    alias fixssh="/usr/bin/ssh-add -k ~/.ssh/id_rsa"
 
 
     #equivalent to solarized dark on macOS
