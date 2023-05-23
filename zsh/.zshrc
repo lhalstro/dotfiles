@@ -131,12 +131,17 @@ export VISUAL=$EDITOR
 # alias c="code"
 c () {
     #Open file in VS Code via ABSOLUTE path (due to git tracking bug for linked files)
-    if [ "$#" -gt 1 ]; then
-        #try to handle option args by only absolute-ing the last arg (doesnt work for multiple files yet)
-        args="${@:1:-1} `readlink -f ${@: -1}`"
-    else
-        args=`readlink -f $1`
-    fi
+    args=""
+    for arg in "$@"
+    do
+        if ! [ "$arg" = "-" ] && [ -f "$arg" ]; then
+            #if not a flag and file exists, get full path
+            args="$args `readlink -f $arg`"
+        else
+            #otherwise, take argument as-is
+            args="$args $arg"
+        fi
+    done
     code $args
 }
 alias c.="c ."
