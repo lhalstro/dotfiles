@@ -393,6 +393,14 @@ case "$OSTYPE" in
     #open files with 'open' command
     alias open="xdg-open"
 
+    #add ssh key to keychain
+    fixssh () {
+        #start ssh agent
+        eval `ssh-agent -s`
+        #add private key (have to enter ssh passphrase)
+        ssh-add ~/.ssh/id_rsa
+    }
+
     ;;
     dragonfly*|freebsd*|netbsd*|openbsd*)
     #--------------------
