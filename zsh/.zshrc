@@ -131,12 +131,17 @@ export VISUAL=$EDITOR
 # alias c="code"
 c () {
     #Open file in VS Code via ABSOLUTE path (due to git tracking bug for linked files)
-    if [ "$#" -gt 1 ]; then
-        #try to handle option args by only absolute-ing the last arg (doesnt work for multiple files yet)
-        args="${@:1:-1} `readlink -f ${@: -1}`"
-    else
-        args=`readlink -f $1`
-    fi
+    args=""
+    for arg in "$@"
+    do
+        if ! [ "$arg" = "-" ] && [ -f "$arg" ]; then
+            #if not a flag and file exists, get full path
+            args="$args `readlink -f $arg`"
+        else
+            #otherwise, take argument as-is
+            args="$args $arg"
+        fi
+    done
     code $args
 }
 alias c.="c ."
@@ -350,19 +355,26 @@ isrunning () {
 
 case "$OSTYPE" in
     darwin*)
-    #--------------------------
+    #----------------------------------------------------
     # On macOS/OS X environment
     export OSNAME="mac"
 
     #add homebrew's bin to path
     export PATH="/usr/local/sbin:$PATH"
 
-    # #absolute path to file, including filename (mac doesnt need -f) #2023-02-08: it does now
-    # alias rl="readlink"
-
     #add ssh key to keychain
     # # alias fixssh="ssh-add -apple-use-keychain ~/.ssh/id_rsa"
     alias fixssh="/usr/bin/ssh-add -k ~/.ssh/id_rsa"
+
+    #Render markdown text in clipboard to file 'foo.*' (`pbpaste` is a mac-specific command)
+    alias clip_md2docx="pbpaste | pandoc -f markdown -t docx -o foo.docx"
+    clip_md2pdf () {
+        #default pandoc doesnt wordwrap pdf, so some basic format rules here. TODO: custom LaTeX format in pandoc default settings
+        echo "\lstset{basicstyle=\sffamily,breaklines=true,breakatwhitespace=true,breakautoindent=true,linewidth=\\\textwidth}" > tmp.tex
+        pbpaste | pandoc --listings -H tmp.tex -V geometry:"left=1cm, top=1cm, right=1cm, bottom=1cm" -V fontsize=12pt -f markdown -t pdf -o foo.pdf
+        rm tmp.tex
+    }
+
 
 
     #equivalent to solarized dark on macOS
@@ -372,7 +384,7 @@ case "$OSTYPE" in
 
     ;;
     linux*)
-    #---------------------
+    #-----------------------------------------------
     # On linux environment
     export OSNAME="linux"
 
@@ -403,7 +415,7 @@ case "$OSTYPE" in
 
     ;;
     dragonfly*|freebsd*|netbsd*|openbsd*)
-    #--------------------
+    #----------------------------------------------
     # On BSD environment
     export OSNAME="bsd"
     ;;

@@ -137,6 +137,8 @@ plugins: [
     lastgenre,
     scrub,
     alternatives,
+    info,
+    duplicates,
 ]
 pluginpath: []
 
@@ -167,10 +169,21 @@ scrub:
 
 #plug-in for making alternative collections for syncing
 alternatives:
-  #alternative group tag
+  
+  #Link-farm subset of music to uploade to GoogleMusic
+  #(alternative group tag is header)
   alt-googlemusic:
     directory: /media/lhalstro/neso/Media/beetsalt/googlemusic
     paths:
       default: $albumartist - $album (%ifdef{original_year,$original_year,$year})/$track - $albumartist - $title
     formats: link
     query: "alt-googlemusic:true"
+  
+  #Sync SD card in Prius Headunit
+  sd-car:
+    directory: /media/lhalstro/daphnis/Music
+    paths:
+      default: $albumartist - $album (%ifdef{original_year,$original_year,$year})/$track - $albumartist - $title
+    formats: mp3
+    query: "sd-car:true"
+    removable: true
