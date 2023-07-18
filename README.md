@@ -29,6 +29,9 @@ stow beets
     - [Install zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
     - Install [oh-my-zsh](https://ohmyz.sh/#install)
     - Might need to move your .zshrc back into place and/or set zsh as default shell
+- powerlevel10k
+    - [Install powerlevel10k](https://github.com/romkatv/powerlevel10k)
+    - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 - vim
     - vundle package manager: https://github.com/VundleVim/Vundle.vim
     - `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
