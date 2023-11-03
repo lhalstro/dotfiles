@@ -295,6 +295,11 @@
     // ONLY FOR PYENV INSTALLS (MAC) (avoid error message about shims):
     "python.defaultInterpreterPath": "~/.pyenv/shims/python",
 
+    // Extra paths to look for python imports
+    "python.analysis.extraPaths": [
+        "/nobackupp19/lhalstro/projects/orion/ar174/renders"
+    ],
+
     // GIT SETTINGS
     // Ignores the legacy git warning (not sure what that is)
     "git.ignoreLegacyWarning": true,
@@ -315,6 +320,23 @@
     // AUTOMATICALLY-APPENDED SETTINGS (do not remove if blank below):
     //cannot find this in settings, not sure what this does
     "jupyter.jupyterServerType": "local",
+
+
+    // SETTINGS FOR MARKDOWN PREVIEW ENHANCED
+    //
+    "markdown-preview-enhanced.pandocPath": "pandoc",
+    //Use `pandoc` as parser instead of markdown-it
+        //Means what you see is what you get when you render a .md to another format with `pandoc`
+        //Allows using `![description](image/path){width=50%}`
+    "markdown-preview-enhanced.usePandocParser": true,
+    //make pandoc render math enclosed in $$
+    "markdown-preview-enhanced.pandocArguments": [
+        "--mathjax",
+    ],
+    // "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_single_backslash",
+    "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_dollars",
+    //Render pandoc markdown in dark theme
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
 
     ///////////////////////////
 

@@ -84,4 +84,16 @@
         "command": "-editor.action.previousMatchFindAction",
         "when": "editorFocus"
     },
+    // Remove default shortcut for bold markdown text that interferes with VS Code bookmark bar
+    {
+        "key": "cmd+b",
+        "command": "-markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
+    // Reassign bold markdown text shortcut to non-conflicting combo
+    {
+        "key": "ctrl+cmd+b",
+        "command": "markdown.extension.editing.toggleBold",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+    },
 ]
