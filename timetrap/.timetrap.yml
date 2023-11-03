@@ -12,4 +12,5 @@ default_command:
 auto_checkout: false
 require_note: false
 note_editor: false
+# note_editor: "vim"
 week_start: Monday
