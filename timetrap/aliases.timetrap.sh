@@ -14,7 +14,7 @@ alias tra='t r --at'
 alias tt='t today all'
 alias tbd='td -f by_day all'
 #macro to record lost time due to dropouts from pfe ssh
-alias pfedrop='to; tsh losttime; ti vscode drop'
+alias pfedrop='to; tsh losttime; ti pfe drop'
 alias pfeback='to; tsh -; tr'
 
 #get entries for current pay period (leverages `payperiod.py` script in user bin)
