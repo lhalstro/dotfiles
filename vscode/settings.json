@@ -332,6 +332,7 @@
     //make pandoc render math enclosed in $$
     "markdown-preview-enhanced.pandocArguments": [
         "--mathjax",
+        "--quiet", //Stops pandoc from printing WARNING messages in preview about duplicate section names
     ],
     // "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_single_backslash",
     "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_dollars",
