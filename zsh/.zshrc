@@ -3,13 +3,30 @@
 
 # zmodload zsh/zprof #DEBUG: get diagnostics to speed up ohmyzsh (call profiler at bottom of .zshrc)
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-    # Initialization code that may require console input (password prompts, [y/n]
-    # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#---------------------------
+
+#CHECK IF WE CAN RUN POWERLEVEL 10K
+#Get high-level zsh version (e.g. "5.0.2" --> "5.0")
+zshver=${ZSH_VERSION:0:3}
+#Test if current version of zsh can run powerlevel 10k (5.1 minimum, 5.4 for fast)
+if [ "`echo "$zshver < 5.3" | bc`" -eq 1 ]; then
+    usePL10K=false
+else
+    usePL10K=true
 fi
 
+#---------------------------
+
+if [ "$usePL10K" = true ]; then
+    # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+        # Initialization code that may require console input (password prompts, [y/n]
+        # confirmations, etc.) must go above this block; everything else may go below.
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
+fi
+
+#---------------------------
 
 # #default for these is 10k, but shell is slow
 # HISTSIZE=1000
@@ -37,10 +54,13 @@ export PREZSHRC=0
 export ZSH=$HOME/.oh-my-zsh
 
 ## Set name of the theme to load.
-# ZSH_THEME="agnoster"
-# # ZSH_THEME="half-life"
-##Much simpler and faster theme:
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if [ "$usePL10K" = true ]; then
+    # Much simpler and faster theme:
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+else
+    ZSH_THEME="agnoster"
+    # ZSH_THEME="half-life"
+fi
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -449,11 +469,11 @@ if [ -d "${HOME}/lib" ]; then
     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
 fi
 
-
-# POWERLEVEL10K THEME: setings from customizer wizard
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+if [ "$usePL10K" = true ]; then
+    # POWERLEVEL10K THEME: setings from customizer wizard
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
 
 
 
