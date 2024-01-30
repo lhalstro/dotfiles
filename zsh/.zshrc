@@ -181,6 +181,19 @@ alias lsl='ls -lah' #list, showing permissions (duplicate alias)
 alias lss='ls -lShra' #list by size, biggest lowest
 alias sl="ls"
 
+#b () {find . -name "$2" -exec $1 {} \; }
+b () {
+    #given command, then list of inputs, execute in a loop
+    #Currently, aliases arent expanded in zsh functions, only other functions
+        #(`setopt` didnt work)
+    cmd=$1
+    inps=(${@:2})
+    for inp in $inps;
+    do
+	    $cmd $inp
+    done
+}
+
 vilastfile () {
     #read last modified file
     #USAGE: vilastfile [globpatternbase]* [nlast]
@@ -242,7 +255,17 @@ alias di="display"
 
 #easy decompress
     #function so it can be used with the batch function
-untar () {tar -xvf $1}
+untar () {
+    #untar `file.tar.gz` (or .tgz) to `file`
+    if [[ "$#" -gt 1 ]]; then
+        for inp in $@;
+        do
+            tar -xvf $inp
+        done
+    else
+        tar -xvf $1
+    fi
+    }
     # alias untar="tar -xvf"
 #easy compress FILE into FILE.tar.gz
 mytar () {tar -czvf ${1}.tar.gz $1}
@@ -262,19 +285,6 @@ delink () {
     if [ -L $1 ] && [ -e $1 ]; then
         cp -p --remove-destination `readlink $1` $1
     fi
-}
-
-#b () {find . -name "$2" -exec $1 {} \; }
-b () {
-    #given command, then list of inputs, execute in a loop
-    #Currently, aliases arent expanded in zsh functions, only other functions
-        #(`setopt` didnt work)
-    cmd=$1
-    inps=(${@:2})
-    for inp in $inps;
-    do
-	    $cmd $inp
-    done
 }
 
 
