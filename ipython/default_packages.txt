@@ -5,6 +5,7 @@
 pip #1st, so that we're working with up-to-date pip
 numpy
 pandas
+pyarrow
 scipy
 matplotlib
 seaborn
