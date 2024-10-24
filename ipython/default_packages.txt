@@ -16,3 +16,4 @@ pylint #VS Code python extension wants this
 tables #?
 
 dask #faster/memory-efficient dataframes
+dask[dataframe]
