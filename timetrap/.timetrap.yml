@@ -11,6 +11,8 @@ auto_sheet_search_paths:
 default_command:
 auto_checkout: false
 require_note: false
-note_editor: false
-# note_editor: "vim"
+### Unfortunately, tiempo requires opening the editor ('false') doesnt work
+### It does auto-recognize that I use vim, though
+# note_editor: false
+# # note_editor: "vim"
 week_start: Monday
