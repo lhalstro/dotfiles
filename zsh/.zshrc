@@ -3,13 +3,30 @@
 
 # zmodload zsh/zprof #DEBUG: get diagnostics to speed up ohmyzsh (call profiler at bottom of .zshrc)
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-    # Initialization code that may require console input (password prompts, [y/n]
-    # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#---------------------------
+
+#CHECK IF WE CAN RUN POWERLEVEL 10K
+#Get high-level zsh version (e.g. "5.0.2" --> "5.0")
+zshver=${ZSH_VERSION:0:3}
+#Test if current version of zsh can run powerlevel 10k (5.1 minimum, 5.4 for fast)
+if [ "`echo "$zshver < 5.3" | bc`" -eq 1 ]; then
+    usePL10K=false
+else
+    usePL10K=true
 fi
 
+#---------------------------
+
+if [ "$usePL10K" = true ]; then
+    # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+        # Initialization code that may require console input (password prompts, [y/n]
+        # confirmations, etc.) must go above this block; everything else may go below.
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
+fi
+
+#---------------------------
 
 # #default for these is 10k, but shell is slow
 # HISTSIZE=1000
@@ -37,10 +54,13 @@ export PREZSHRC=0
 export ZSH=$HOME/.oh-my-zsh
 
 ## Set name of the theme to load.
-# ZSH_THEME="agnoster"
-# # ZSH_THEME="half-life"
-##Much simpler and faster theme:
-ZSH_THEME="powerlevel10k/powerlevel10k"
+if [ "$usePL10K" = true ]; then
+    # Much simpler and faster theme:
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+else
+    ZSH_THEME="agnoster"
+    # ZSH_THEME="half-life"
+fi
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
@@ -161,6 +181,19 @@ alias lsl='ls -lah' #list, showing permissions (duplicate alias)
 alias lss='ls -lShra' #list by size, biggest lowest
 alias sl="ls"
 
+#b () {find . -name "$2" -exec $1 {} \; }
+b () {
+    #given command, then list of inputs, execute in a loop
+    #Currently, aliases arent expanded in zsh functions, only other functions
+        #(`setopt` didnt work)
+    cmd=$1
+    inps=(${@:2})
+    for inp in $inps;
+    do
+	    $cmd $inp
+    done
+}
+
 vilastfile () {
     #read last modified file
     #USAGE: vilastfile [globpatternbase]* [nlast]
@@ -222,7 +255,17 @@ alias di="display"
 
 #easy decompress
     #function so it can be used with the batch function
-untar () {tar -xvf $1}
+untar () {
+    #untar `file.tar.gz` (or .tgz) to `file`
+    if [[ "$#" -gt 1 ]]; then
+        for inp in $@;
+        do
+            tar -xvf $inp
+        done
+    else
+        tar -xvf $1
+    fi
+    }
     # alias untar="tar -xvf"
 #easy compress FILE into FILE.tar.gz
 mytar () {tar -czvf ${1}.tar.gz $1}
@@ -242,19 +285,6 @@ delink () {
     if [ -L $1 ] && [ -e $1 ]; then
         cp -p --remove-destination `readlink $1` $1
     fi
-}
-
-#b () {find . -name "$2" -exec $1 {} \; }
-b () {
-    #given command, then list of inputs, execute in a loop
-    #Currently, aliases arent expanded in zsh functions, only other functions
-        #(`setopt` didnt work)
-    cmd=$1
-    inps=(${@:2})
-    for inp in $inps;
-    do
-	    $cmd $inp
-    done
 }
 
 
@@ -449,11 +479,11 @@ if [ -d "${HOME}/lib" ]; then
     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
 fi
 
-
-# POWERLEVEL10K THEME: setings from customizer wizard
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+if [ "$usePL10K" = true ]; then
+    # POWERLEVEL10K THEME: setings from customizer wizard
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
 
 
 
