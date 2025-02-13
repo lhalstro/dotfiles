@@ -310,7 +310,10 @@ txall () {
 #compress pdf
 compresspdf () {
     #compress filename.pdf into compress_filename.pdf using GhostScript
-    #MAIN COMMAND: gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dNOPAUSE -dQUIET -dBATCH -dPrinted=false -sOutputFile=output.pdf input.pdf
+    #USAGE: compresspdf input.pdf [compressionlevel]
+    #    compression level --> increasing compression: 1,2,3,4 (no value results in baseline compression)
+    #                          supercompress: 300-425
+    #                          hypercompress: 150-299
     if [ -z "$1" ]; then
         echo "ERROR: Must specify file to compress"
         echo "compresspdf file.pdf [LVL]"
@@ -325,6 +328,14 @@ compresspdf () {
 	    complvl="-dPDFSETTINGS=/ebook"
     elif [ "$2" = "4" ]; then
 	    complvl="-dPDFSETTINGS=/screen"
+    elif [ "$2" > "299" ]; then
+        #supercompress (choose $2 = resolution = somewhere between 300-425)
+	    gs -q -dNOPAUSE -dBATCH -dSAFER -dOverPrint=/simulate -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -dEmbedAllFonts=true -dSubsetFonts=true -dAutoRotatePages=/None  -dColorImageResolution=$2  -dGrayImageResolution=$2  -dMonoImageResolution=$2 -sOutputFile=compress_$1 $1
+        return
+    elif [ "$2" > "4" ]; then
+        #hypercompress (choose $2 = resolution = somewhere between 150-300)
+        gs -q -dNOPAUSE -dBATCH -dSAFER -dOverPrint=/simulate -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook -dEmbedAllFonts=true -dSubsetFonts=true -dAutoRotatePages=/None -dColorImageDownsampleType=/Bicubic -dColorImageResolution=$2 -dGrayImageDownsampleType=/Bicubic -dGrayImageResolution=$2 -dMonoImageDownsampleType=/Bicubic -dMonoImageResolution=$2 -sOutputFile=compress_$1 $1
+        return
     else
         complvl=""
     fi
