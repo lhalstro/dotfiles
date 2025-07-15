@@ -33,6 +33,9 @@
     // MAC ONLY: macbook pro has really small text, zooming in helps
     "window.zoomLevel": 1,
 
+    // Stop auto-adding periods after pressing spacebar twice
+    "editor.acceptSuggestionOnCommitCharacter": false,
+
     //-------------------------------------------------------------------------
     // THEME SETTINGS
 
