@@ -341,7 +341,25 @@
     "markdown-preview-enhanced.pandocMarkdownFlavor": "markdown-raw_tex+tex_math_dollars",
     //Render pandoc markdown in dark theme
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    //Set markdown tabsize to 2 because that's apparently industry standard
+    "[markdown]": {
+        "editor.tabSize": 2,
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint", //default markdown formatter (markdownlint or markdown all in one)
+        // "editor.quickSuggestions": {
+        //     "other": "on",
+        //     "comments": "off",
+        //     "strings": "off" //turn this on to get markdown snippet suggestions, but then you have suggestions for every word you type
+        // }
+    },
+    //Markdown Lint Settings
+    "markdownlint.config": {
+        "default": true,
+        "MD024": { //Rule: headings can't have same name (because pandoc doesn't like that)
+            "siblings_only": true //only apply to duplicates that share a parent
+        },
+    },
 
+    // Auto-added settings:
     ///////////////////////////
 
 }
