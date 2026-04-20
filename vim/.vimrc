@@ -156,3 +156,6 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 'ra'
 
+
+" Only use backupcopy for Timetrap/system temp files (macOS-specific)
+autocmd BufNewFile,BufRead */.tmp* setlocal backupcopy=yes
