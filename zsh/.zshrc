@@ -486,9 +486,14 @@ if [ -d "${HOME}/.pyenv" ]; then
     alias fixpyenv="pyenv rehash"
 fi
 # Custom Python Modules
+#bulk location for single-level python utilities
 if [ -d "${HOME}/lib" ]; then
     export PYTHONPATH="${PYTHONPATH}:${HOME}/lib/python"
 fi
+#actual python modules (add all directories in `pythonmodules` to python path individually)
+for d in "${HOME}/lib/pythonmodules/"*/; do
+    export PYTHONPATH="${PYTHONPATH}:${d%/}"
+done
 
 if [ "$usePL10K" = true ]; then
     # POWERLEVEL10K THEME: setings from customizer wizard
