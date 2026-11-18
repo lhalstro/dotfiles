@@ -21,7 +21,12 @@ alias pfeback='to; tsh -; tr'
 tdpp() {
     #display timesheet entries for current payperiod (default: all timesheets)
     if [[ "$#" == "1" ]]; then sheet=$1; else sheet="all" fi
-    tmp=($(payperiod -c)) ; t d --start "${tmp[2]}" --end "${tmp[3]}" $sheet ; echo "\n$tmp[4]/10 workdays ($(($tmp[4]*8)) hrs)"
+    tmp=($(payperiod --current)) ; t d --start "${tmp[2]}" --end "${tmp[3]}" $sheet ; echo "\n$tmp[4]/10 workdays ($(($tmp[4]*8)) hrs)"
+}
+tdppp() {
+    #display timesheet entries for previous payperiod (default: all timesheets)
+    if [[ "$#" == "1" ]]; then sheet=$1; else sheet="all" fi
+    tmp=($(payperiod --previous)) ; t d --start "${tmp[2]}" --end "${tmp[3]}" $sheet ; echo "\n$tmp[4]/10 workdays ($(($tmp[4]*8)) hrs)"
 }
 tm() {
     #Move entry to another timesheet: `tm ID new_sheet`
